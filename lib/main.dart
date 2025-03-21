@@ -1,29 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:wizh_trips/env/app_environment.dart';
 import 'package:wizh_trips/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setUpApp();
   runApp(TripApp());
 }
 
-class TripApp extends StatelessWidget {
+/// The root widget of the application.
+///
+/// Displays either the [TripListPage] or the [SplashScreen], depending on
+/// whether the user has seen the splash screen before.
+///
+/// The first time the application is launched, it displays the [SplashScreen].
+/// Any subsequent launches display the [TripListPage].
+///
+/// The decision is made by storing a 'first_time' key in the secure storage
+/// using the [SecureStorage] class.
+///
+/// When the key is null, the [SplashScreen] is shown. Otherwise, the
+/// [TripListPage] is shown.
+class TripApp extends StatefulWidget {
+  const TripApp({super.key});
+
+  @override
+  TripAppState createState() => TripAppState();
+}
+
+class TripAppState extends State<TripApp> {
+  @override
+  void initState() {
+    super.initState();
+    checkFirstTime();
+  }
+
+  void checkFirstTime() async {
+    final firstTime = await SecureStorage().read('first_time');
+    if (firstTime == null) {
+      Get.rootDelegate.toNamed('/splash');
+    } else {
+      Get.rootDelegate.toNamed('/');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   title: 'Trip App',
-    //   theme: ThemeData(primarySwatch: Colors.blue),
-    //   home: TripListPage(),
-    // );
     return GetMaterialApp.router(
-      title: 'Flutter Demo',
+      title: 'Wizh Trips',
+      theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
+      defaultTransition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: 500),
       getPages: [
-        GetPage(name: '/', page: () => SplashScreen()),
-        GetPage(
-          name: '/trip',
-          page: () => TripListPage(),
-          // middlewares: [GlobalMiddleware()]
-        ),
+        GetPage(name: '/', page: () => TripListPage()),
+        GetPage(name: '/splash', page: () => SplashScreen()),
       ],
     );
   }
@@ -92,7 +124,7 @@ class TripListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Trips")),
+      // appBar: AppBar(title: Text("Trips")),
       body: ListView.builder(
         itemCount: trips.length,
         itemBuilder: (context, index) {

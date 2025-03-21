@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:get/route_manager.dart';
+import 'package:wizh_trips/env/app_environment.dart';
+import 'package:wizh_trips/shared/color.dart';
+import 'package:wizh_trips/shared/spacing.dart';
 
 /// The first screen that is shown when the app is launched.
 ///
@@ -23,7 +26,7 @@ class SplashScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 28,
+              horizontal: size28,
               vertical: MediaQuery.of(context).size.height * 0.05,
             ),
             child: Column(
@@ -37,30 +40,37 @@ class SplashScreen extends StatelessWidget {
                   child: Text(
                     "Discover the\nWorld with us!",
                     style: TextStyle(
-                      color: Color(0xFFE9E1D8),
-                      fontSize: 28,
+                      color: WizhColor.pearlBush,
+                      fontSize: size28,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
                   "Discover, book, and explore new destinations\nfor unforgettable adventures",
-                  style: TextStyle(color: Color(0xFFF8F5F2), fontSize: 16),
+                  style: TextStyle(
+                    color: WizhColor.springWood,
+                    fontSize: size16,
+                  ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.025),
                 SwipeButton(
-                  thumbPadding: EdgeInsets.all(4),
-                  thumb: Icon(Icons.chevron_right, color: Color(0xFFF8F5F2)),
-                  elevationThumb: 2,
-                  elevationTrack: 2,
+                  thumbPadding: EdgeInsets.all(size4),
+                  thumb: Icon(Icons.chevron_right, color: WizhColor.springWood),
+                  elevationThumb: size4,
+                  elevationTrack: size4,
                   activeTrackColor: Color(0xFF443C30),
                   activeThumbColor: Color(0xFF9B8774),
                   child: Text(
                     "Let's Go",
-                    style: TextStyle(color: Color(0xFFF8F5F2), fontSize: 16),
+                    style: TextStyle(
+                      color: WizhColor.springWood,
+                      fontSize: size16,
+                    ),
                   ),
-                  onSwipe: () {
-                    Get.rootDelegate.toNamed('/trip');
+                  onSwipe: () async {
+                    await SecureStorage().save('first_time', 'true');
+                    Get.rootDelegate.toNamed('/');
                   },
                 ),
               ],
