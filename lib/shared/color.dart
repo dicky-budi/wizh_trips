@@ -4,11 +4,17 @@ class WizhColor {
   /// Support
   static const Color pearlBush = Color(0xFFE9E1D8);
   static const Color springWood = Color(0xFFF8F5F2);
+  static const Color eerieBlack = Color(0xFF242019);
+  static const Color isabelline = Color(0xFFF8F5F2);
+  static const Color whiteSmoke = Color(0xFFF7F5F3);
+  static const Color beaver = Color(0xFF9B8774);
 
   // GRADIENT
-  static RadialGradient gradientBg = RadialGradient(
-    colors: [Color(0xff947a6d), Color(0xff95836f)],
-    stops: [0, 1],
-    center: Alignment.center,
+
+  static LinearGradient gradientLinearBg = LinearGradient(
+    colors: [Color(0xFFA3947B), Color(0xFF988571), Color(0xFFF7F5F3)],
+    stops: [0, 0.5, 1],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
   );
 }

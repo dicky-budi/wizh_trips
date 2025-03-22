@@ -1,0 +1,184 @@
+{
+  "response": 200,
+  "data": [
+    {
+      "city": "Helsinki",
+      "country": "Finland",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Herkulliset pitaleivät ja falafelit",
+      "image": [
+        "https://prod-wolt-venue-images-cdn.wolt.com/5996b207ac09660afae98373/7680cf2cffae35b7302e3a91b65ce8f5"
+      ],
+      "location": [24.9417033791542, 60.169590913672],
+      "name": "Fafa's Citykäytävä",
+      "tags": ["pita", "falafel"],
+      "star_rating": 5,
+      "type": "restaurant"
+    },
+    {
+      "name": "Sai Kaew Beach Resort",
+      "address": "8/1 Moo 4 Tumbon Phe Muang",
+      "zipcode": "21160",
+      "city": "Koh Samet",
+      "country": "Thailand",
+      "star_rating": 4,
+      "location": [101.466979, 12.568135],
+      "image": [
+        "http://pix2.agoda.net/hotelimages/1/-1/0ff4876f93688b8adcbed487b5a2175d.jpg?s=312x",
+        "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x",
+        "http://pix4.agoda.net/hotelimages/1/-1/59241704e99027895aa6293d734c9fb1.jpg?s=312x",
+        "http://pix5.agoda.net/hotelimages/1/-1/fce5d70fac02fcb7aa25f31dd25850a8.jpg?s=312x",
+        "http://pix1.agoda.net/hotelimages/1/-1/7952a908de348304417552246f9039de.jpg?s=312x"
+      ],
+      "description": "The 4-star Sai Kaew Beach Resort offers comfort and convenience whether you're on business or holiday in Koh Samet. The property features a wide range of facilities to make your stay a pleasant experience. Free Wi-Fi in all rooms, daily housekeeping, gift/souvenir shop, 24-hour front desk, Wi-Fi in public areas are just some of the facilities on offer. Some of the well-appointed guestrooms feature slippers, separate living room, television LCD/plasma screen, mirror, internet access – wireless. Take a break from a long day and make use of fitness center, sauna, outdoor pool, spa, massage. No matter what your reasons are for visiting Koh Samet, Sai Kaew Beach Resort will make you feel instantly at home.",
+      "rates_from": 166,
+      "number_of_reviews": 3439,
+      "currency": "USD",
+      "type": "hotel"
+    },
+    {
+      "city": "Helsinki",
+      "country": "Finland",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Fresh ingredients makes fresh taste",
+      "image": [
+        "https://prod-wolt-venue-images-cdn.wolt.com/5d63b2f947e0db48e4c19e46/f790340eaf6cce48712fd7a0887ba65c"
+      ],
+      "location": [24.941448569297787, 60.16931552051862],
+      "name": "Sandro Citykäytävä",
+      "tags": ["middle eastern", "north-african"],
+      "star_rating": 4,
+      "type": "restaurant"
+    },
+    {
+      "name": "The Park Hotel Visakhapatnam",
+      "address": "Beach road",
+      "zipcode": "530023",
+      "city": "Visakhapatnam",
+      "country": "India",
+      "star_rating": 5,
+      "location": [83.33672, 17.721279],
+      "image": [
+        "http://pix4.agoda.net/hotelimages/103/103/103_15080418100033635932.jpg?s=312x",
+        "http://pix5.agoda.net/hotelimages/103/103/103_15080418180033636301.jpg?s=312x",
+        "http://pix4.agoda.net/hotelimages/103/103/103_15080418180033636284.jpg?s=312x",
+        "http://pix4.agoda.net/hotelimages/103/103/103_15080418180033636289.jpg?s=312x",
+        "http://pix2.agoda.net/hotelimages/103/103/103_15080418180033636291.jpg?s=312x"
+      ],
+      "description": "The Park Hotel Visakhapatnam is a popular choice amongst travelers in Visakhapatnam, whether exploring or just passing through. Featuring a complete list of amenities, guests will find their stay at the property a comfortable one. Service-minded staff will welcome and guide you at the The Park Hotel Visakhapatnam. Some of the well-appointed guestrooms feature television LCD/plasma screen, cleaning products, free welcome drink, slippers, towels. Enjoy the hotel's recreational facilities, including hiking trails, mini golf course, hot tub, private beach, fitness center, before retiring to your room for a well-deserved rest. Convenience and comfort makes The Park Hotel Visakhapatnam the perfect choice for your stay in Visakhapatnam.",
+      "rates_from": 102,
+      "number_of_reviews": 163,
+      "rating_average": 7.9,
+      "rates_currency": "USD",
+      "type": "hotel"
+    },
+    {
+      "city": "Helsinki",
+      "country": "Finland",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Gourmet burgerit Australiasta",
+      "image": [
+        "https://prod-wolt-venue-images-cdn.wolt.com/55f71c7ec04ebe16e6859aa7/121b9eccc7d813b541aa42a164fdf4ed"
+      ],
+      "location": [24.938988983631134, 60.173556527576],
+      "name": "Woolshed – Australian Gastropub",
+      "type": "restaurant",
+      "star_rating": 4,
+      "tags": ["gourmet", "hamburger"]
+    },
+    {
+      "name": "Sheraton Grand Hotel & Spa, Edinburgh",
+      "address": "1 Festival Square",
+      "city": "Edinburgh",
+      "country": "United Kingdom",
+      "star_rating": 5,
+      "location": [-3.207612, 55.947063],
+      "image": [
+        "http://pix3.agoda.net/hotelimages/15/0/59a863c3a6e93b759faf2beea910d516.jpg?s=312x",
+        "http://pix5.agoda.net/hotelimages/15/15/15_13072409510013984463.jpg?s=312x",
+        "http://pix2.agoda.net/hotelimages/15/15/15_17091312040056285473.jpg?s=312x",
+        "http://pix4.agoda.net/hotelimages/15/15/15_17091312040056285476.jpg?s=312x",
+        "http://pix5.agoda.net/hotelimages/15/15/15_17091312040056285477.jpg?s=312x"
+      ],
+      "description": "Sheraton Grand Hotel & Spa, Edinburgh is perfectly located for both business and leisure guests in Edinburgh. The hotel has everything you need for a comfortable stay. 24-hour room service, free Wi-Fi in all rooms, 24-hour security, daily housekeeping, fireplace are there for guest's enjoyment. Each guestroom is elegantly furnished and equipped with handy amenities. The hotel offers various recreational opportunities. Sheraton Grand Hotel & Spa, Edinburgh is an excellent choice from which to explore Edinburgh or to simply relax and rejuvenate.",
+      "rates_from": 185,
+      "number_of_reviews": 35,
+      "rating_average": 8.8,
+      "rates_currency": "USD",
+      "type": "hotel"
+    },
+    {
+      "city": "Helsinki",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Käsintehtyä sushia",
+      "image": [
+        "https://prod-wolt-venue-images-cdn.wolt.com/5bd16f9fae0064000c88ce3a/4579a3e0b606975c69ebcf2ab1a50d4b"
+      ],
+      "location": [24.937022924423218, 60.169811851945454],
+      "name": "Haiku Sushi",
+      "type": "restaurant",
+      "star_rating": 4,
+      "tags": ["sushi", "japanese"]
+    },
+    {
+      "name": "Holiday Inn Express London Greenwich",
+      "address": "Bugsbys Way",
+      "city": "London",
+      "country": "United Kingdom",
+      "star_rating": 3.5,
+      "location": [0.009795, 51.492519],
+      "image": [
+        "http://pix4.agoda.net/hotelimages/5149864/0/37204a2012d78e13c33b78b5827f215d.jpg?s=312x",
+        "http://pix3.agoda.net/hotelimages/5149864/93417912/44fbcabecff3a6db50210e15a4ec4ba0.jpg?s=312x",
+        "http://pix2.agoda.net/hotelimages/5149864/0/b2129c80810186618c4c308d33da0f76.jpg?s=312x",
+        "http://pix4.agoda.net/hotelimages/5149864/0/f6b4814b56629b17742d3564265366ce.jpg?s=312x",
+        "http://pix1.agoda.net/hotelimages/5149864/0/b8a7483401513e014d7e2e512d666232.jpg?s=312x"
+      ],
+      "description": "Holiday Inn Express London Greenwich is a popular choice amongst travelers in London, whether exploring or just passing through. The hotel has everything you need for a comfortable stay. Service-minded staff will welcome and guide you at the Holiday Inn Express London Greenwich. Guestrooms are fitted with all the amenities you need for a good night's sleep. In some of the rooms, guests can find television LCD/plasma screen, non smoking rooms, air conditioning, heating, desk. The hotel offers various recreational opportunities. Holiday Inn Express London Greenwich combines warm hospitality with a lovely ambiance to make your stay in London unforgettable.",
+      "rates_from": 157,
+      "number_of_reviews": 87,
+      "rating_average": 7.6,
+      "rates_currency": "USD",
+      "type": "hotel"
+    },
+    {
+      "city": "Helsinki",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Piristävät mehut & smoothiet",
+      "image": [
+        "https://prod-wolt-venue-images-cdn.wolt.com/553df9d27ce4db6244fb0ba9/8088de706e432f14376bf98c2b50816c"
+      ],
+      "location": [24.938031435012817, 60.16898838130677],
+      "name": "Jungle Juice Bar Forum",
+      "type": "restaurant",
+      "star_rating": 4,
+      "tags": ["fruit", "smoothie"]
+    },
+    {
+      "name": "Hotel Sunroute Nara",
+      "address": "1110 Takabatake-cho",
+      "city": "Nara",
+      "country": "Japan",
+      "star_rating": 3,
+      "location": [135.83226, 34.679607],
+      "image": [
+        "http://pix3.agoda.net/hotelimages/109/109/109_16052212090042589176.jpg?s=312x",
+        "http://pix5.agoda.net/hotelimages/109/109/109_16052211280042588226.jpg?s=312x",
+        "http://pix2.agoda.net/hotelimages/109/109/109_110928140746380.jpg?s=312x",
+        "http://pix1.agoda.net/hotelimages/109/109/109_13041810270011932326.jpg?s=312x",
+        "http://pix3.agoda.net/hotelimages/109/109/109_16052211270042588224.jpg?s=312x"
+      ],
+      "description": "Ideally located in the prime touristic area of Nara City Center, Hotel Sunroute Nara promises a relaxing and wonderful visit. The property features a wide range of facilities to make your stay a pleasant experience. To be found at the hotel are free Wi-Fi in all rooms, daily housekeeping, laundromat, 24-hour front desk, Wi-Fi in public areas. Guestrooms are designed to provide an optimal level of comfort with welcoming decor and some offering convenient amenities like television LCD/plasma screen, non smoking rooms, air conditioning, heating, wake-up service. The hotel offers various recreational opportunities. Convenience and comfort makes Hotel Sunroute Nara the perfect choice for your stay in Nara.",
+      "rates_from": 85,
+      "number_of_reviews": 52,
+      "rating_average": 8.2,
+      "rates_currency": "USD",
+      "type": "hotel"
+    }
+  ]
+}
