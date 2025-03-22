@@ -12,9 +12,10 @@
       ],
       "location": [24.9417033791542, 60.169590913672],
       "name": "Fafa's Citykäytävä",
+      "number_of_reviews": 20,
       "tags": ["pita", "falafel"],
-      "star_rating": 5,
-      "type": "restaurant"
+      "star_rating": 5.0,
+      "type": "restaurants"
     },
     {
       "name": "Sai Kaew Beach Resort",
@@ -22,7 +23,7 @@
       "zipcode": "21160",
       "city": "Koh Samet",
       "country": "Thailand",
-      "star_rating": 4,
+      "star_rating": 4.2,
       "location": [101.466979, 12.568135],
       "image": [
         "http://pix2.agoda.net/hotelimages/1/-1/0ff4876f93688b8adcbed487b5a2175d.jpg?s=312x",
@@ -35,10 +36,11 @@
       "rates_from": 166,
       "number_of_reviews": 3439,
       "currency": "USD",
+      "tags": ["beach", "resort", "thailand"],
       "type": "hotel"
     },
     {
-      "city": "Helsinki",
+      "city": "Oulu",
       "country": "Finland",
       "currency": "EUR",
       "delivery_price": 390,
@@ -47,10 +49,11 @@
         "https://prod-wolt-venue-images-cdn.wolt.com/5d63b2f947e0db48e4c19e46/f790340eaf6cce48712fd7a0887ba65c"
       ],
       "location": [24.941448569297787, 60.16931552051862],
+      "number_of_reviews": 49,
       "name": "Sandro Citykäytävä",
       "tags": ["middle eastern", "north-african"],
-      "star_rating": 4,
-      "type": "restaurant"
+      "star_rating": 4.3,
+      "type": "restaurants"
     },
     {
       "name": "The Park Hotel Visakhapatnam",
@@ -58,7 +61,7 @@
       "zipcode": "530023",
       "city": "Visakhapatnam",
       "country": "India",
-      "star_rating": 5,
+      "star_rating": 5.0,
       "location": [83.33672, 17.721279],
       "image": [
         "http://pix4.agoda.net/hotelimages/103/103/103_15080418100033635932.jpg?s=312x",
@@ -72,12 +75,13 @@
       "number_of_reviews": 163,
       "rating_average": 7.9,
       "rates_currency": "USD",
+      "tags": ["hotel", "india"],
       "type": "hotel"
     },
     {
-      "city": "Helsinki",
-      "country": "Finland",
-      "currency": "EUR",
+      "city": "Sydney",
+      "country": "Australia",
+      "currency": "USD",
       "delivery_price": 390,
       "description": "Gourmet burgerit Australiasta",
       "image": [
@@ -85,8 +89,9 @@
       ],
       "location": [24.938988983631134, 60.173556527576],
       "name": "Woolshed – Australian Gastropub",
-      "type": "restaurant",
-      "star_rating": 4,
+      "type": "restaurants",
+      "number_of_reviews": 920,
+      "star_rating": 4.6,
       "tags": ["gourmet", "hamburger"]
     },
     {
@@ -94,7 +99,7 @@
       "address": "1 Festival Square",
       "city": "Edinburgh",
       "country": "United Kingdom",
-      "star_rating": 5,
+      "star_rating": 4.8,
       "location": [-3.207612, 55.947063],
       "image": [
         "http://pix3.agoda.net/hotelimages/15/0/59a863c3a6e93b759faf2beea910d516.jpg?s=312x",
@@ -108,11 +113,13 @@
       "number_of_reviews": 35,
       "rating_average": 8.8,
       "rates_currency": "USD",
+      "tags": ["sheraton", "hotel", "spa"],
       "type": "hotel"
     },
     {
-      "city": "Helsinki",
-      "currency": "EUR",
+      "city": "Tokyo",
+      "country": "Japan",
+      "currency": "Yen",
       "delivery_price": 390,
       "description": "Käsintehtyä sushia",
       "image": [
@@ -120,8 +127,9 @@
       ],
       "location": [24.937022924423218, 60.169811851945454],
       "name": "Haiku Sushi",
-      "type": "restaurant",
-      "star_rating": 4,
+      "number_of_reviews": 30,
+      "type": "restaurants",
+      "star_rating": 4.7,
       "tags": ["sushi", "japanese"]
     },
     {
@@ -129,7 +137,7 @@
       "address": "Bugsbys Way",
       "city": "London",
       "country": "United Kingdom",
-      "star_rating": 3.5,
+      "star_rating": 4.5,
       "location": [0.009795, 51.492519],
       "image": [
         "http://pix4.agoda.net/hotelimages/5149864/0/37204a2012d78e13c33b78b5827f215d.jpg?s=312x",
@@ -143,11 +151,13 @@
       "number_of_reviews": 87,
       "rating_average": 7.6,
       "rates_currency": "USD",
+      "tags": ["london", "inn"],
       "type": "hotel"
     },
     {
-      "city": "Helsinki",
-      "currency": "EUR",
+      "city": "Honolulu",
+      "country": "Hawaii",
+      "currency": "USD",
       "delivery_price": 390,
       "description": "Piristävät mehut & smoothiet",
       "image": [
@@ -155,8 +165,9 @@
       ],
       "location": [24.938031435012817, 60.16898838130677],
       "name": "Jungle Juice Bar Forum",
-      "type": "restaurant",
-      "star_rating": 4,
+      "number_of_reviews": 78,
+      "type": "restaurants",
+      "star_rating": 4.9,
       "tags": ["fruit", "smoothie"]
     },
     {
@@ -164,7 +175,7 @@
       "address": "1110 Takabatake-cho",
       "city": "Nara",
       "country": "Japan",
-      "star_rating": 3,
+      "star_rating": 3.8,
       "location": [135.83226, 34.679607],
       "image": [
         "http://pix3.agoda.net/hotelimages/109/109/109_16052212090042589176.jpg?s=312x",
@@ -177,6 +188,7 @@
       "rates_from": 85,
       "number_of_reviews": 52,
       "rating_average": 8.2,
+      "tags": ["japan", "hotel"],
       "rates_currency": "USD",
       "type": "hotel"
     }

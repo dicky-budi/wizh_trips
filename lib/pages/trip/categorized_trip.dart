@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:wizh_trips/controller/trip_controller.dart';
+import 'package:wizh_trips/entity/trip_entity.dart';
 import 'package:wizh_trips/shared/choice_chip.dart';
 import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/constants.dart';
@@ -17,15 +18,126 @@ class CategorizedTrip extends StatefulWidget {
 
 class CategorizedTripState extends State<CategorizedTrip> {
   final TripCategoryController tripCategoryController = Get.find();
+  final TripCategorizedController tripCategorizedController = Get.find();
 
   @override
   void initState() {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
+  Widget tripsCard(TripData tripData) {
+    return Column(
+      children: [
+        Material(
+          elevation: size4,
+          borderRadius: BorderRadius.circular(size12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(size12),
+              color: Colors.white,
+            ),
+            height: size120,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(size12),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: CachedNetworkImageProvider(tripData.image[0]),
+                      ),
+                    ),
+                    child: SizedBox(height: size120),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: size12,
+                      vertical: size8,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                tripData.name,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: size16,
+                                  height: 1.2,
+                                  fontWeight: FontWeight.bold,
+                                  color: WizhColor.eerieBlack,
+                                ),
+                              ),
+                              const SizedBox(height: size4),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    size: size16,
+                                    color: Colors.yellow,
+                                  ),
+                                  const SizedBox(width: size4),
+                                  RichText(
+                                    text: TextSpan(
+                                      text:
+                                          "${tripData.starRating.toString()}  ",
+                                      style: TextStyle(
+                                        color: WizhColor.eerieBlack,
+                                        fontSize: size12,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              "(${tripData.numberOfReviews.toString()})",
+                                          style: TextStyle(
+                                            color: WizhColor.eerieBlack
+                                                .withOpacity(.4),
+                                            fontSize: size12,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Wrap(
+                            spacing: size4,
+                            children: [
+                              for (final tag in tripData.tags ?? [])
+                                WizhChip(
+                                  selected: true,
+                                  onSelected: (value) {},
+                                  text: tag,
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: size20),
+      ],
+    );
   }
 
   @override
@@ -51,6 +163,7 @@ class CategorizedTripState extends State<CategorizedTrip> {
                         tripCategoryController.category.value == category.name,
                     onSelected: (value) {
                       tripCategoryController.updateCategory(category.name);
+                      tripCategorizedController.filterCategory(category.name);
                     },
                     text: category.name,
                     prefixWidget: SvgPicture.asset(
@@ -63,470 +176,15 @@ class CategorizedTripState extends State<CategorizedTrip> {
             ],
           ),
           const SizedBox(height: size12),
-          Card.filled(
-            color: Colors.white,
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(size12),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          tripCategorizedController.obx(
+            (trip) => Column(
               children: [
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(size12),
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          "http://pix3.agoda.net/hotelimages/147/147/147_1112051559004767099.jpg?s=312x",
-                      placeholder:
-                          (context, url) =>
-                              const Center(child: CircularProgressIndicator()),
-                      errorWidget:
-                          (context, url, error) => const Icon(Icons.error),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: size8,
-                      vertical: size8,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Van der Valk Hotel Hildesheim",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: size16,
-                            height: 1.25,
-                            fontWeight: FontWeight.bold,
-                            color: WizhColor.eerieBlack,
-                          ),
-                        ),
-                        const SizedBox(height: size4),
-                        Row(
-                          children: [
-                            Text(
-                              "4",
-                              style: TextStyle(
-                                fontSize: size12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const SizedBox(width: size4),
-                            for (int i = 0; i < 4; i++)
-                              Icon(
-                                Icons.star,
-                                size: size16,
-                                color: Colors.yellow,
-                              ),
-                            const SizedBox(width: size4),
-                          ],
-                        ),
-                        const SizedBox(height: size12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on, size: size12),
-                            const SizedBox(width: size4),
-                            Expanded(
-                              child: Text(
-                                "Markt 4, GPS: Jakobistraße 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang",
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: size12,
-                                  fontWeight: FontWeight.bold,
-                                  color: WizhColor.eerieBlack,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                // Expanded(child: child)
+                for (final tripData
+                    in tripCategorizedController.categorizedTrip)
+                  tripsCard(tripData),
               ],
             ),
           ),
-          const SizedBox(height: size8),
-          Card.filled(
-            color: Colors.white,
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(size12),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(size12),
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          "http://pix3.agoda.net/hotelimages/147/147/147_1112051559004767099.jpg?s=312x",
-                      placeholder:
-                          (context, url) =>
-                              const Center(child: CircularProgressIndicator()),
-                      errorWidget:
-                          (context, url, error) => const Icon(Icons.error),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: size8,
-                      vertical: size8,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Van der Valk Hotel Hildesheim",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: size16,
-                            height: 1.25,
-                            fontWeight: FontWeight.bold,
-                            color: WizhColor.eerieBlack,
-                          ),
-                        ),
-                        const SizedBox(height: size4),
-                        Row(
-                          children: [
-                            Text(
-                              "4",
-                              style: TextStyle(
-                                fontSize: size12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const SizedBox(width: size4),
-                            for (int i = 0; i < 4; i++)
-                              Icon(
-                                Icons.star,
-                                size: size16,
-                                color: Colors.yellow,
-                              ),
-                            const SizedBox(width: size4),
-                          ],
-                        ),
-                        const SizedBox(height: size12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on, size: size12),
-                            const SizedBox(width: size4),
-                            Expanded(
-                              child: Text(
-                                "Markt 4, GPS: Jakobistraße 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang",
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: size12,
-                                  fontWeight: FontWeight.bold,
-                                  color: WizhColor.eerieBlack,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                // Expanded(child: child)
-              ],
-            ),
-          ),
-          const SizedBox(height: size8),
-          // Card.filled(
-          //   color: Colors.white,
-          //   elevation: 4,
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(size12),
-          //   ),
-          //   child: Row(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Expanded(
-          //         child: ClipRRect(
-          //           borderRadius: BorderRadius.circular(size12),
-          //           child: CachedNetworkImage(
-          //             imageUrl:
-          //                 "http://pix3.agoda.net/hotelimages/147/147/147_1112051559004767099.jpg?s=312x",
-          //             placeholder:
-          //                 (context, url) =>
-          //                     const Center(child: CircularProgressIndicator()),
-          //             errorWidget:
-          //                 (context, url, error) => const Icon(Icons.error),
-          //           ),
-          //         ),
-          //       ),
-          //       Expanded(
-          //         child: Padding(
-          //           padding: const EdgeInsets.symmetric(
-          //             horizontal: size8,
-          //             vertical: size8,
-          //           ),
-          //           child: Column(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Text(
-          //                 "Van der Valk Hotel Hildesheim",
-          //                 maxLines: 2,
-          //                 overflow: TextOverflow.ellipsis,
-          //                 style: TextStyle(
-          //                   fontSize: size16,
-          //                   height: 1.25,
-          //                   fontWeight: FontWeight.bold,
-          //                   color: WizhColor.eerieBlack,
-          //                 ),
-          //               ),
-          //               const SizedBox(height: size4),
-          //               Row(
-          //                 children: [
-          //                   Text(
-          //                     "4",
-          //                     style: TextStyle(
-          //                       fontSize: size12,
-          //                       fontWeight: FontWeight.w600,
-          //                     ),
-          //                   ),
-          //                   const SizedBox(width: size4),
-          //                   for (int i = 0; i < 4; i++)
-          //                     Icon(
-          //                       Icons.star,
-          //                       size: size16,
-          //                       color: Colors.yellow,
-          //                     ),
-          //                   const SizedBox(width: size4),
-          //                 ],
-          //               ),
-          //               const SizedBox(height: size12),
-          //               Row(
-          //                 mainAxisAlignment: MainAxisAlignment.end,
-          //                 crossAxisAlignment: CrossAxisAlignment.center,
-          //                 children: [
-          //                   Icon(Icons.location_on, size: size12),
-          //                   const SizedBox(width: size4),
-          //                   Expanded(
-          //                     child: Text(
-          //                       "Markt 4, GPS: Jakobistraße 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang",
-          //                       maxLines: 3,
-          //                       overflow: TextOverflow.ellipsis,
-          //                       style: TextStyle(
-          //                         fontSize: size12,
-          //                         fontWeight: FontWeight.bold,
-          //                         color: WizhColor.eerieBlack,
-          //                       ),
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //       // Expanded(child: child)
-          //     ],
-          //   ),
-          // ),
-          // const SizedBox(height: size8),
-          // Card.filled(
-          //   color: Colors.white,
-          //   elevation: 4,
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(size12),
-          //   ),
-          //   child: Row(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Expanded(
-          //         child: ClipRRect(
-          //           borderRadius: BorderRadius.circular(size12),
-          //           child: CachedNetworkImage(
-          //             imageUrl:
-          //                 "http://pix3.agoda.net/hotelimages/147/147/147_1112051559004767099.jpg?s=312x",
-          //             placeholder:
-          //                 (context, url) =>
-          //                     const Center(child: CircularProgressIndicator()),
-          //             errorWidget:
-          //                 (context, url, error) => const Icon(Icons.error),
-          //           ),
-          //         ),
-          //       ),
-          //       Expanded(
-          //         child: Padding(
-          //           padding: const EdgeInsets.symmetric(
-          //             horizontal: size8,
-          //             vertical: size8,
-          //           ),
-          //           child: Column(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Text(
-          //                 "Van der Valk Hotel Hildesheim",
-          //                 maxLines: 2,
-          //                 overflow: TextOverflow.ellipsis,
-          //                 style: TextStyle(
-          //                   fontSize: size16,
-          //                   height: 1.25,
-          //                   fontWeight: FontWeight.bold,
-          //                   color: WizhColor.eerieBlack,
-          //                 ),
-          //               ),
-          //               const SizedBox(height: size4),
-          //               Row(
-          //                 children: [
-          //                   Text(
-          //                     "4",
-          //                     style: TextStyle(
-          //                       fontSize: size12,
-          //                       fontWeight: FontWeight.w600,
-          //                     ),
-          //                   ),
-          //                   const SizedBox(width: size4),
-          //                   for (int i = 0; i < 4; i++)
-          //                     Icon(
-          //                       Icons.star,
-          //                       size: size16,
-          //                       color: Colors.yellow,
-          //                     ),
-          //                   const SizedBox(width: size4),
-          //                 ],
-          //               ),
-          //               const SizedBox(height: size12),
-          //               Row(
-          //                 mainAxisAlignment: MainAxisAlignment.end,
-          //                 crossAxisAlignment: CrossAxisAlignment.center,
-          //                 children: [
-          //                   Icon(Icons.location_on, size: size12),
-          //                   const SizedBox(width: size4),
-          //                   Expanded(
-          //                     child: Text(
-          //                       "Markt 4, GPS: Jakobistraße 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang",
-          //                       maxLines: 3,
-          //                       overflow: TextOverflow.ellipsis,
-          //                       style: TextStyle(
-          //                         fontSize: size12,
-          //                         fontWeight: FontWeight.bold,
-          //                         color: WizhColor.eerieBlack,
-          //                       ),
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //       // Expanded(child: child)
-          //     ],
-          //   ),
-          // ),
-          // const SizedBox(height: size8),
-          // Card.filled(
-          //   color: Colors.white,
-          //   elevation: 4,
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(size12),
-          //   ),
-          //   child: Row(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Expanded(
-          //         child: ClipRRect(
-          //           borderRadius: BorderRadius.circular(size12),
-          //           child: CachedNetworkImage(
-          //             imageUrl:
-          //                 "http://pix3.agoda.net/hotelimages/147/147/147_1112051559004767099.jpg?s=312x",
-          //             placeholder:
-          //                 (context, url) =>
-          //                     const Center(child: CircularProgressIndicator()),
-          //             errorWidget:
-          //                 (context, url, error) => const Icon(Icons.error),
-          //           ),
-          //         ),
-          //       ),
-          //       Expanded(
-          //         child: Padding(
-          //           padding: const EdgeInsets.symmetric(
-          //             horizontal: size8,
-          //             vertical: size8,
-          //           ),
-          //           child: Column(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Text(
-          //                 "Van der Valk Hotel Hildesheim",
-          //                 maxLines: 2,
-          //                 overflow: TextOverflow.ellipsis,
-          //                 style: TextStyle(
-          //                   fontSize: size16,
-          //                   height: 1.25,
-          //                   fontWeight: FontWeight.bold,
-          //                   color: WizhColor.eerieBlack,
-          //                 ),
-          //               ),
-          //               const SizedBox(height: size4),
-          //               Row(
-          //                 children: [
-          //                   Text(
-          //                     "4",
-          //                     style: TextStyle(
-          //                       fontSize: size12,
-          //                       fontWeight: FontWeight.w600,
-          //                     ),
-          //                   ),
-          //                   const SizedBox(width: size4),
-          //                   for (int i = 0; i < 4; i++)
-          //                     Icon(
-          //                       Icons.star,
-          //                       size: size16,
-          //                       color: Colors.yellow,
-          //                     ),
-          //                   const SizedBox(width: size4),
-          //                 ],
-          //               ),
-          //               const SizedBox(height: size12),
-          //               Row(
-          //                 mainAxisAlignment: MainAxisAlignment.end,
-          //                 crossAxisAlignment: CrossAxisAlignment.center,
-          //                 children: [
-          //                   Icon(Icons.location_on, size: size12),
-          //                   const SizedBox(width: size4),
-          //                   Expanded(
-          //                     child: Text(
-          //                       "Markt 4, GPS: Jakobistraße 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang 8/1 Moo 4 Tumbon Phe Muang",
-          //                       maxLines: 3,
-          //                       overflow: TextOverflow.ellipsis,
-          //                       style: TextStyle(
-          //                         fontSize: size12,
-          //                         fontWeight: FontWeight.bold,
-          //                         color: WizhColor.eerieBlack,
-          //                       ),
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //       // Expanded(child: child)
-          //     ],
-          //   ),
-          // ),
         ],
       ),
     );

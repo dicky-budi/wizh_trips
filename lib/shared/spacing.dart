@@ -35,4 +35,5 @@ const double size88 = 88.0;
 const double size96 = 96.0;
 const double size100 = 100.0;
 const double size116 = 116.0;
+const double size120 = 120.0;
 const double size160 = 160.0;

@@ -7,7 +7,7 @@ class WizhColor {
   static const Color eerieBlack = Color(0xFF242019);
   static const Color isabelline = Color(0xFFF8F5F2);
   static const Color whiteSmoke = Color(0xFFF7F5F3);
-  static const Color beaver = Color(0xFF9B8774);
+  static const Color beaver = Color(0xFF8E7A67);
 
   // GRADIENT
 

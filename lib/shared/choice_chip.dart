@@ -8,13 +8,13 @@ class WizhChip extends StatelessWidget {
     required this.selected,
     required this.onSelected,
     required this.text,
-    required this.prefixWidget,
+    this.prefixWidget,
   });
 
   final bool selected;
   final Function(bool) onSelected;
   final String text;
-  final Widget prefixWidget;
+  final Widget? prefixWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,7 @@ class WizhChip extends StatelessWidget {
       onSelected: onSelected,
       backgroundColor: WizhColor.whiteSmoke,
       selected: selected,
+      visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
     );
   }
 }

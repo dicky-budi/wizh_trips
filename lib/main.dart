@@ -56,7 +56,14 @@ class TripAppState extends State<TripApp> {
       theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
       defaultTransition: Transition.cupertino,
       initialBinding: BindingsBuilder(() {
-        Get.lazyPut<TripController>(() => TripController(), fenix: true);
+        Get.lazyPut<TripPopularController>(
+          () => TripPopularController(),
+          fenix: true,
+        );
+        Get.lazyPut<TripCategorizedController>(
+          () => TripCategorizedController(),
+          fenix: true,
+        );
         Get.lazyPut<TripCategoryController>(
           () => TripCategoryController(),
           fenix: true,

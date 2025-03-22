@@ -15,7 +15,7 @@ class PopularTrip extends StatefulWidget {
 
 class PopularTripState extends State<PopularTrip> {
   final CarouselController controller = CarouselController(initialItem: 1);
-  final TripController c = Get.find<TripController>();
+  final TripPopularController c = Get.find<TripPopularController>();
 
   @override
   void initState() {
@@ -99,7 +99,7 @@ class PopularTripState extends State<PopularTrip> {
           itemExtent: MediaQuery.of(context).size.width * 0.8,
           elevation: 2,
           scrollDirection: Axis.horizontal,
-          children: List<Widget>.generate(trip?.length ?? 0, (int index) {
+          children: List<Widget>.generate(5, (int index) {
             return Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(size24),
@@ -109,7 +109,9 @@ class PopularTripState extends State<PopularTrip> {
                     Colors.black38,
                     BlendMode.darken,
                   ),
-                  image: CachedNetworkImageProvider(trip?[index].photo1 ?? ""),
+                  image: CachedNetworkImageProvider(
+                    trip?[index].image[0] ?? "",
+                  ),
                 ),
               ),
               child: Padding(
@@ -122,7 +124,7 @@ class PopularTripState extends State<PopularTrip> {
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        trip?[index].hotelName ?? "",
+                        trip?[index].name ?? "",
                         style: TextStyle(
                           color: WizhColor.isabelline,
                           fontSize: size28,
