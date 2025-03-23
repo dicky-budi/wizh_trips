@@ -4,7 +4,8 @@ import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wizh_trips/controller/trip_controller.dart';
 import 'package:wizh_trips/env/app_environment.dart';
-import 'package:wizh_trips/pages/splash_screen.dart';
+import 'package:wizh_trips/pages/onboarding.dart';
+import 'package:wizh_trips/pages/trip/trip_detail.dart';
 import 'package:wizh_trips/pages/trip/trip_landing.dart';
 
 void main() async {
@@ -43,7 +44,7 @@ class TripAppState extends State<TripApp> {
   void checkFirstTime() async {
     final firstTime = await SecureStorage().read('first_time');
     if (firstTime == null) {
-      Get.rootDelegate.toNamed('/splash');
+      Get.rootDelegate.toNamed('/onboarding');
     } else {
       Get.rootDelegate.toNamed('/');
     }
@@ -68,11 +69,16 @@ class TripAppState extends State<TripApp> {
           () => TripCategoryController(),
           fenix: true,
         );
+        Get.lazyPut<TripSelectedController>(
+          () => TripSelectedController(),
+          fenix: true,
+        );
       }),
       transitionDuration: const Duration(milliseconds: 500),
       getPages: [
         GetPage(name: '/', page: () => TripListPage()),
-        GetPage(name: '/splash', page: () => SplashScreen()),
+        GetPage(name: '/onboarding', page: () => OnboardingScreen()),
+        GetPage(name: '/detail', page: () => TripDetailPage()),
       ],
     );
   }

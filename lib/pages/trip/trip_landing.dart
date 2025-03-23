@@ -5,85 +5,12 @@ import 'package:wizh_trips/pages/trip/popular_trip.dart';
 import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/spacing.dart';
 
-class Trip {
-  final String title;
-  final String imageUrl;
-  final double price;
-  final double rating;
-  final List<String> images;
-  final String summary;
-  final List<String> includes;
-  final List<String> excludes;
-  final String terms;
-
-  Trip({
-    required this.title,
-    required this.imageUrl,
-    required this.price,
-    required this.rating,
-    required this.images,
-    required this.summary,
-    required this.includes,
-    required this.excludes,
-    required this.terms,
-  });
-}
-
 class TripListPage extends StatelessWidget {
-  TripListPage({super.key});
-
-  final List<Trip> trips = [
-    Trip(
-      title: "Bali Getaway",
-      imageUrl:
-          "https://ik.imagekit.io/tvlk/blog/2023/09/shutterstock_631736717.jpg",
-      price: 199.99,
-      rating: 4.5,
-      images: [
-        "https://ik.imagekit.io/tvlk/blog/2023/09/shutterstock_631736717.jpg",
-        "https://ik.imagekit.io/tvlk/blog/2023/09/shutterstock_631736717.jpg",
-        "https://ik.imagekit.io/tvlk/blog/2023/09/shutterstock_631736717.jpg",
-      ],
-      summary: "Experience the best of Bali with this amazing trip!",
-      includes: ["Hotel Stay", "Breakfast", "Airport Transfer"],
-      excludes: ["Flights", "Personal Expenses"],
-      terms: "No refund on cancellation within 7 days of departure.",
-    ),
-    Trip(
-      title: "Mountain Escape",
-      imageUrl:
-          "https://cdn1.healthians.com/blog/wp-content/uploads/2019/07/407.jpg",
-      price: 149.99,
-      rating: 4.7,
-      images: [
-        "https://cdn1.healthians.com/blog/wp-content/uploads/2019/07/407.jpg",
-        "https://cdn1.healthians.com/blog/wp-content/uploads/2019/07/407.jpg",
-        "https://cdn1.healthians.com/blog/wp-content/uploads/2019/07/407.jpg",
-      ],
-      summary: "A thrilling adventure in the mountains with guided hikes!",
-      includes: ["Guided Tour", "Meals", "Camp Stay"],
-      excludes: ["Gear Rental", "Transport"],
-      terms: "Full refund available up to 14 days before departure.",
-    ),
-  ];
+  const TripListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Row(
-      //     crossAxisAlignment: CrossAxisAlignment.end,
-      //     children: [
-      //       Icon(Icons.pin_drop, size: size24),
-      //       const SizedBox(width: size8),
-      //       Text(
-      //         "Indonesia, Surabaya",
-      //         style: TextStyle(fontSize: size16, fontWeight: FontWeight.bold),
-      //       ),
-      //     ],
-      //   ),
-      //   backgroundColor: WizhColor.pearlBush,
-      // ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(gradient: WizhColor.gradientLinearBg),

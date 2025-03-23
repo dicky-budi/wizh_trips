@@ -19,6 +19,7 @@ class CategorizedTrip extends StatefulWidget {
 class CategorizedTripState extends State<CategorizedTrip> {
   final TripCategoryController tripCategoryController = Get.find();
   final TripCategorizedController tripCategorizedController = Get.find();
+  final TripSelectedController tripSelectedController = Get.find();
 
   @override
   void initState() {
@@ -26,117 +27,123 @@ class CategorizedTripState extends State<CategorizedTrip> {
   }
 
   Widget tripsCard(TripData tripData) {
-    return Column(
-      children: [
-        Material(
-          elevation: size4,
-          borderRadius: BorderRadius.circular(size12),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(size12),
-              color: Colors.white,
-            ),
-            height: size120,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(size12),
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: CachedNetworkImageProvider(tripData.image[0]),
+    return InkWell(
+      onTap: () {
+        tripSelectedController.updateTrip(tripData);
+        Get.rootDelegate.toNamed('/detail');
+      },
+      child: Column(
+        children: [
+          Material(
+            elevation: size4,
+            borderRadius: BorderRadius.circular(size12),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(size12),
+                color: Colors.white,
+              ),
+              height: size120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(size12),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: CachedNetworkImageProvider(tripData.image[0]),
+                        ),
+                      ),
+                      child: SizedBox(height: size120),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: size12,
+                        vertical: size8,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tripData.name,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: size16,
+                                    height: 1.2,
+                                    fontWeight: FontWeight.bold,
+                                    color: WizhColor.eerieBlack,
+                                  ),
+                                ),
+                                const SizedBox(height: size4),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      size: size16,
+                                      color: Colors.yellow,
+                                    ),
+                                    const SizedBox(width: size4),
+                                    RichText(
+                                      text: TextSpan(
+                                        text:
+                                            "${tripData.starRating.toString()}  ",
+                                        style: TextStyle(
+                                          color: WizhColor.eerieBlack,
+                                          fontSize: size12,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                "(${tripData.numberOfReviews.toString()})",
+                                            style: TextStyle(
+                                              color: WizhColor.eerieBlack
+                                                  .withOpacity(.4),
+                                              fontSize: size12,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Wrap(
+                              spacing: size4,
+                              children: [
+                                for (final tag in tripData.tags ?? [])
+                                  WizhChip(
+                                    selected: true,
+                                    onSelected: (value) {},
+                                    text: tag,
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    child: SizedBox(height: size120),
                   ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: size12,
-                      vertical: size8,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                tripData.name,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: size16,
-                                  height: 1.2,
-                                  fontWeight: FontWeight.bold,
-                                  color: WizhColor.eerieBlack,
-                                ),
-                              ),
-                              const SizedBox(height: size4),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.star,
-                                    size: size16,
-                                    color: Colors.yellow,
-                                  ),
-                                  const SizedBox(width: size4),
-                                  RichText(
-                                    text: TextSpan(
-                                      text:
-                                          "${tripData.starRating.toString()}  ",
-                                      style: TextStyle(
-                                        color: WizhColor.eerieBlack,
-                                        fontSize: size12,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text:
-                                              "(${tripData.numberOfReviews.toString()})",
-                                          style: TextStyle(
-                                            color: WizhColor.eerieBlack
-                                                .withOpacity(.4),
-                                            fontSize: size12,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Wrap(
-                            spacing: size4,
-                            children: [
-                              for (final tag in tripData.tags ?? [])
-                                WizhChip(
-                                  selected: true,
-                                  onSelected: (value) {},
-                                  text: tag,
-                                ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: size20),
-      ],
+          const SizedBox(height: size20),
+        ],
+      ),
     );
   }
 

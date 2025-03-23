@@ -7,15 +7,48 @@
       "currency": "EUR",
       "delivery_price": 390,
       "description": "Herkulliset pitaleivät ja falafelit",
+      "phone": "+358 9 12345678",
       "image": [
         "https://prod-wolt-venue-images-cdn.wolt.com/5996b207ac09660afae98373/7680cf2cffae35b7302e3a91b65ce8f5"
       ],
-      "location": [24.9417033791542, 60.169590913672],
+      "location": [60.169590913672, 24.9417033791542],
       "name": "Fafa's Citykäytävä",
       "number_of_reviews": 20,
       "tags": ["pita", "falafel"],
       "star_rating": 5.0,
-      "type": "restaurants"
+      "open_days": "Monday - Friday",
+      "open_time": "07.00 - 17.00",
+      "type": "restaurants",
+      "reviews": [
+        {
+          "reviewer": "Alice Smith",
+          "date": "2024-10-26",
+          "rating": 5,
+          "comment": "Absolutely amazing food and service! The ambiance was perfect, and the staff was incredibly friendly. Highly recommend!",
+          "tags": ["food", "service", "ambiance", "recommend"]
+        },
+        {
+          "reviewer": "Bob Johnson",
+          "date": "2024-10-27",
+          "rating": 4,
+          "comment": "Good food, but the service was a little slow. Overall, a pleasant experience.",
+          "tags": ["food", "service", "slow", "pleasant"]
+        },
+        {
+          "reviewer": "Charlie Brown",
+          "date": "2024-10-28",
+          "rating": 3,
+          "comment": "The food was okay, but the prices were a bit high for the quality.",
+          "tags": ["food", "price", "quality"]
+        },
+        {
+          "reviewer": "Diana Davis",
+          "date": "2024-10-29",
+          "rating": 5,
+          "comment": "Excellent food, great service, and a lovely atmosphere. I'll definitely be back!",
+          "tags": ["food", "service", "atmosphere", "recommend"]
+        }
+      ]
     },
     {
       "name": "Sai Kaew Beach Resort",
@@ -23,8 +56,11 @@
       "zipcode": "21160",
       "city": "Koh Samet",
       "country": "Thailand",
+      "phone": "06 9756 4509",
+      "checkin_time": "14:00 - 23:59",
+      "checkout_time": "12:00",
       "star_rating": 4.2,
-      "location": [101.466979, 12.568135],
+      "location": [12.5583, 101.4511],
       "image": [
         "http://pix2.agoda.net/hotelimages/1/-1/0ff4876f93688b8adcbed487b5a2175d.jpg?s=312x",
         "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x",
@@ -37,23 +73,192 @@
       "number_of_reviews": 3439,
       "currency": "USD",
       "tags": ["beach", "resort", "thailand"],
-      "type": "hotel"
+      "type": "hotel",
+      "rooms": [
+        {
+          "name": "Senior Deluxe Room",
+          "reschedule_date": "2025-03-30",
+          "area": "22.0m2",
+          "pax": "2",
+          "bed": "1 Queen",
+          "start_price": "1136723",
+          "discounted_price": "588731",
+          "after_tax_price": "667033"
+        },
+        {
+          "name": "Senior Deluxe City view",
+          "reschedule_date": "2025-03-31",
+          "area": "30.0m2",
+          "pax": "1",
+          "bed": "1 Queen",
+          "start_price": "651700",
+          "discounted_price": "651700",
+          "after_tax_price": "739028"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Fantastic beachfront resort in Phuket! The rooms were spacious, and the service was top-notch.",
+          "tags": ["Thailand", "Hotel", "Phuket", "Beachfront"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Charming boutique hotel in Chiang Mai with a beautiful garden and friendly staff.",
+          "tags": ["Thailand", "Hotel", "Chiang Mai", "Boutique"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "The hotel in Bangkok had a great location, but the rooms were a bit outdated.",
+          "tags": ["Thailand", "Hotel", "Bangkok", "Outdated Rooms"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Stunning overwater villas in Koh Samui! The views were breathtaking, and the spa was excellent.",
+          "tags": ["Thailand", "Hotel", "Koh Samui", "Overwater Villa"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "Disappointing stay in Pattaya. The hotel was noisy, and the amenities were not as advertised.",
+          "tags": ["Thailand", "Hotel", "Pattaya", "Noisy"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Great eco-friendly resort in Krabi with a focus on sustainability.",
+          "tags": ["Thailand", "Hotel", "Krabi", "Eco-Friendly"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Nice hotel in Hua Hin, but the breakfast buffet could have had more variety.",
+          "tags": ["Thailand", "Hotel", "Hua Hin", "Limited Breakfast"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "Luxury hotel in Bangkok with an incredible rooftop bar and amazing city views.",
+          "tags": ["Thailand", "Hotel", "Bangkok", "Rooftop Bar"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Beautiful riverside hotel in Ayutthaya, perfect for exploring the historical sites.",
+          "tags": ["Thailand", "Hotel", "Ayutthaya", "Riverside"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Decent hotel in Phuket, but the WiFi was unreliable.",
+          "tags": ["Thailand", "Hotel", "Phuket", "WiFi Issues"]
+        }
+      ]
     },
     {
       "city": "Oulu",
       "country": "Finland",
+      "phone": "+358 9 12345678",
       "currency": "EUR",
       "delivery_price": 390,
-      "description": "Fresh ingredients makes fresh taste",
+      "description": "Fresh ingredients makes fresh taste and unique experience with the best of the local cuisine in Oulu, Finland. A must-visit destination for foodies and travelers alike. The resort offers a wide range of dining options, including traditional Finnish cuisine, international cuisine, and vegetarian options.",
       "image": [
         "https://prod-wolt-venue-images-cdn.wolt.com/5d63b2f947e0db48e4c19e46/f790340eaf6cce48712fd7a0887ba65c"
       ],
-      "location": [24.941448569297787, 60.16931552051862],
+      "location": [65.021545, 25.469885],
       "number_of_reviews": 49,
       "name": "Sandro Citykäytävä",
       "tags": ["middle eastern", "north-african"],
       "star_rating": 4.3,
-      "type": "restaurants"
+      "open_days": "Monday - Saturday",
+      "open_time": "07.00 - 20.00",
+      "type": "restaurants",
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Amazing Middle Eastern restaurant in Helsinki! The falafel was crispy, and the hummus was rich and flavorful.",
+          "tags": ["Finland", "Restaurant", "Middle Eastern", "Helsinki"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Great shawarma and kebabs! The spices were well-balanced, and the service was friendly.",
+          "tags": ["Finland", "Restaurant", "Shawarma", "Kebabs"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Decent food, but the portion sizes were a bit small for the price.",
+          "tags": ["Finland", "Restaurant", "Portion Size", "Pricey"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Loved the authentic flavors! The baklava was the perfect way to end the meal.",
+          "tags": ["Finland", "Restaurant", "Baklava", "Authentic"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "The food was okay, but the service was slow, and it took a long time to get our order.",
+          "tags": ["Finland", "Restaurant", "Slow Service", "Middle Eastern"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Delicious mezze platter with a great variety of dips and bread.",
+          "tags": ["Finland", "Restaurant", "Mezze Platter", "Dips"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Nice atmosphere, but the lamb kofta was a little dry.",
+          "tags": ["Finland", "Restaurant", "Lamb Kofta", "Atmosphere"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "Best Middle Eastern food in Finland! The spices and flavors were perfectly balanced.",
+          "tags": ["Finland", "Restaurant", "Middle Eastern", "Best in Town"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Enjoyed the grilled halloumi and fresh salads. Would definitely visit again.",
+          "tags": ["Finland", "Restaurant", "Halloumi", "Fresh Ingredients"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Good food overall, but the seating was a bit cramped.",
+          "tags": ["Finland", "Restaurant", "Cramped Seating", "Tasty"]
+        }
+      ]
     },
     {
       "name": "The Park Hotel Visakhapatnam",
@@ -61,8 +266,9 @@
       "zipcode": "530023",
       "city": "Visakhapatnam",
       "country": "India",
+      "phone": "+91 12345 67890",
       "star_rating": 5.0,
-      "location": [83.33672, 17.721279],
+      "location": [17.6868, 83.2185],
       "image": [
         "http://pix4.agoda.net/hotelimages/103/103/103_15080418100033635932.jpg?s=312x",
         "http://pix5.agoda.net/hotelimages/103/103/103_15080418180033636301.jpg?s=312x",
@@ -76,31 +282,193 @@
       "rating_average": 7.9,
       "rates_currency": "USD",
       "tags": ["hotel", "india"],
-      "type": "hotel"
+      "type": "hotel",
+      "checkin_time": "13:00 - 23:59",
+      "checkout_time": "11:00",
+      "rooms": [
+        {
+          "name": "Senior Deluxe City view",
+          "reschedule_date": "2025-03-31",
+          "area": "25.0m2",
+          "pax": "1",
+          "bed": "1 Queen",
+          "start_price": "651700",
+          "discounted_price": "651700",
+          "after_tax_price": "739028"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Incredible stay at a luxury hotel in Mumbai! The service was outstanding, and the rooftop view was breathtaking.",
+          "tags": ["India", "Hotel", "Luxury", "Mumbai"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Charming heritage hotel in Jaipur with beautiful architecture and warm hospitality.",
+          "tags": ["India", "Hotel", "Jaipur", "Heritage"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Decent hotel in Delhi, but the noise from the streets was a bit too much at night.",
+          "tags": ["India", "Hotel", "Delhi", "Noisy"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Staying in a houseboat hotel in Kerala was a magical experience! The backwaters are stunning.",
+          "tags": ["India", "Hotel", "Kerala", "Houseboat"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "The hotel in Chennai was underwhelming, with slow service and outdated rooms.",
+          "tags": ["India", "Hotel", "Chennai", "Outdated"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Great beach resort in Goa with a relaxing vibe and delicious seafood!",
+          "tags": ["India", "Hotel", "Goa", "Beach Resort"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Affordable hotel in Bangalore, but the breakfast options were quite limited.",
+          "tags": ["India", "Hotel", "Bangalore", "Limited Breakfast"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "One of the best hotel experiences in India! Incredible hospitality and well-maintained rooms.",
+          "tags": ["India", "Hotel", "Luxury", "Hospitality"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "A peaceful boutique hotel in Udaipur with breathtaking views of the lake.",
+          "tags": ["India", "Hotel", "Udaipur", "Lake View"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Good hotel in Kolkata, but the WiFi was unreliable.",
+          "tags": ["India", "Hotel", "Kolkata", "WiFi Issues"]
+        }
+      ]
     },
     {
-      "city": "Sydney",
-      "country": "Australia",
-      "currency": "USD",
+      "city": "Helsinki",
+      "country": "Finland",
+      "phone": "+358 9 12345678",
+      "currency": "EUR",
       "delivery_price": 390,
       "description": "Gourmet burgerit Australiasta",
       "image": [
         "https://prod-wolt-venue-images-cdn.wolt.com/55f71c7ec04ebe16e6859aa7/121b9eccc7d813b541aa42a164fdf4ed"
       ],
-      "location": [24.938988983631134, 60.173556527576],
+      "location": [60.173556527576, 24.938988983631134],
       "name": "Woolshed – Australian Gastropub",
       "type": "restaurants",
       "number_of_reviews": 920,
+      "open_days": "Everyday",
+      "open_time": "08.00 - 21.00",
       "star_rating": 4.6,
-      "tags": ["gourmet", "hamburger"]
+      "tags": ["gourmet", "hamburger"],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Amazing gastropub with a fantastic selection of craft beers and Nordic-inspired dishes!",
+          "tags": ["Finland", "Gastropub", "Craft Beer", "Nordic Cuisine"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Cozy atmosphere with friendly staff. The reindeer burger was delicious!",
+          "tags": ["Finland", "Gastropub", "Cozy", "Reindeer Burger"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Good food and drinks, but the service was a bit slow on a busy evening.",
+          "tags": ["Finland", "Gastropub", "Slow Service", "Busy"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Loved the local Finnish dishes and the perfectly paired beer selection!",
+          "tags": ["Finland", "Gastropub", "Finnish Cuisine", "Beer Pairing"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "The place was too crowded, and it was difficult to get a table without a reservation.",
+          "tags": ["Finland", "Gastropub", "Crowded", "Reservation Needed"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Fantastic smoked salmon dish! Great selection of local beers as well.",
+          "tags": ["Finland", "Gastropub", "Smoked Salmon", "Local Beer"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Nice ambiance, but the portion sizes were smaller than expected.",
+          "tags": ["Finland", "Gastropub", "Ambiance", "Small Portions"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "Best gastropub experience in Finland! Unique dishes and excellent service.",
+          "tags": ["Finland", "Gastropub", "Unique Dishes", "Excellent Service"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "A great place to enjoy traditional Finnish flavors in a modern setting.",
+          "tags": ["Finland", "Gastropub", "Traditional", "Modern Setting"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Good food, but the beer prices were a bit high compared to other places.",
+          "tags": ["Finland", "Gastropub", "Expensive", "Beer"]
+        }
+      ]
     },
     {
       "name": "Sheraton Grand Hotel & Spa, Edinburgh",
       "address": "1 Festival Square",
       "city": "Edinburgh",
       "country": "United Kingdom",
+      "phone": "+44 20 1234 5678",
       "star_rating": 4.8,
-      "location": [-3.207612, 55.947063],
+      "location": [55.947063, -3.207612],
       "image": [
         "http://pix3.agoda.net/hotelimages/15/0/59a863c3a6e93b759faf2beea910d516.jpg?s=312x",
         "http://pix5.agoda.net/hotelimages/15/15/15_13072409510013984463.jpg?s=312x",
@@ -114,7 +482,93 @@
       "rating_average": 8.8,
       "rates_currency": "USD",
       "tags": ["sheraton", "hotel", "spa"],
-      "type": "hotel"
+      "type": "hotel",
+      "checkin_time": "14:00 - 23:59",
+      "checkout_time": "12:00",
+      "rooms": [
+        {
+          "name": "Senior Deluxe City view",
+          "reschedule_date": "2025-03-31",
+          "area": "25.0m2",
+          "pax": "1",
+          "bed": "1 Queen",
+          "start_price": "651700",
+          "discounted_price": "651700",
+          "after_tax_price": "739028"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Luxurious stay with top-notch spa services. Highly recommend!",
+          "tags": ["Hotel", "Spa", "Luxury", "United Kingdom"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Beautiful location and great spa, but the room service was a bit slow.",
+          "tags": ["Hotel", "Spa", "Relaxing", "United Kingdom"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "The rooms were comfortable, but the spa was overcrowded.",
+          "tags": ["Hotel", "Spa", "Crowded", "United Kingdom"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Fantastic spa treatments and very friendly staff!",
+          "tags": ["Hotel", "Spa", "Wellness", "United Kingdom"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "Overpriced stay, and the spa facilities were not as advertised.",
+          "tags": ["Hotel", "Spa", "Expensive", "United Kingdom"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Great location and lovely spa, but breakfast options were limited.",
+          "tags": ["Hotel", "Spa", "Scenic", "United Kingdom"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Decent stay, but the spa needs better maintenance.",
+          "tags": ["Hotel", "Spa", "Maintenance", "United Kingdom"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "Outstanding spa experience and a truly relaxing getaway!",
+          "tags": ["Hotel", "Spa", "Luxury", "United Kingdom"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Nice cozy hotel with excellent spa treatments.",
+          "tags": ["Hotel", "Spa", "Cozy", "United Kingdom"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Decent hotel, but the spa was too crowded and noisy.",
+          "tags": ["Hotel", "Spa", "Crowded", "United Kingdom"]
+        }
+      ]
     },
     {
       "city": "Tokyo",
@@ -128,17 +582,93 @@
       "location": [24.937022924423218, 60.169811851945454],
       "name": "Haiku Sushi",
       "number_of_reviews": 30,
+      "phone": "(012)-345-6789",
       "type": "restaurants",
+      "open_days": "Monday - Saturday",
+      "open_time": "10.00 - 22.00",
       "star_rating": 4.7,
-      "tags": ["sushi", "japanese"]
+      "tags": ["sushi", "japanese"],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Best sushi I've had in a long time! Fresh fish and amazing presentation.",
+          "tags": ["Sushi", "Japanese", "Fine Dining", "United Kingdom"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Delicious sushi, but the service was a bit slow.",
+          "tags": ["Sushi", "Japanese", "Casual", "United Kingdom"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Good variety of rolls, but a bit overpriced for the portion sizes.",
+          "tags": ["Sushi", "Expensive", "Casual", "United Kingdom"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "The chef’s special omakase was incredible! Highly recommend.",
+          "tags": ["Sushi", "Omakase", "Fine Dining", "United Kingdom"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "Fish didn’t taste very fresh, and the atmosphere was too loud.",
+          "tags": ["Sushi", "Japanese", "Crowded", "United Kingdom"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Good selection of sushi and sashimi, but the wait was long.",
+          "tags": ["Sushi", "Japanese", "Casual", "United Kingdom"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "The rolls were good, but nothing special compared to other places.",
+          "tags": ["Sushi", "Japanese", "Casual", "United Kingdom"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "Amazing experience! The best sushi in town!",
+          "tags": ["Sushi", "Japanese", "Fine Dining", "United Kingdom"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Nice little sushi bar with a great selection of fresh fish.",
+          "tags": ["Sushi", "Japanese", "Cozy", "United Kingdom"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Sushi was good but the restaurant was too crowded and noisy.",
+          "tags": ["Sushi", "Japanese", "Crowded", "United Kingdom"]
+        }
+      ]
     },
     {
       "name": "Holiday Inn Express London Greenwich",
       "address": "Bugsbys Way",
       "city": "London",
       "country": "United Kingdom",
+      "phone": "+44 20 1234 5678",
       "star_rating": 4.5,
-      "location": [0.009795, 51.492519],
+      "location": [51.492519, 0.009795],
       "image": [
         "http://pix4.agoda.net/hotelimages/5149864/0/37204a2012d78e13c33b78b5827f215d.jpg?s=312x",
         "http://pix3.agoda.net/hotelimages/5149864/93417912/44fbcabecff3a6db50210e15a4ec4ba0.jpg?s=312x",
@@ -152,7 +682,93 @@
       "rating_average": 7.6,
       "rates_currency": "USD",
       "tags": ["london", "inn"],
-      "type": "hotel"
+      "type": "hotel",
+      "checkin_time": "15:00 - 23:59",
+      "checkout_time": "13:00",
+      "rooms": [
+        {
+          "name": "Senior Deluxe Room",
+          "reschedule_date": "2025-03-31",
+          "area": "23.0m2",
+          "pax": "1",
+          "bed": "1 Queen",
+          "start_price": "651700",
+          "discounted_price": "651700",
+          "after_tax_price": "739028"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Fantastic hotel with spacious rooms and excellent service!",
+          "tags": ["Hotel", "Luxury", "London"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Great location and friendly staff, but breakfast options were limited.",
+          "tags": ["Hotel", "Central Location", "London"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Comfortable stay, but the noise from the street was a bit much.",
+          "tags": ["Hotel", "City View", "London"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Incredible experience! The hotel had a beautiful rooftop view.",
+          "tags": ["Hotel", "Luxury", "Rooftop", "London"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "The room was small, and the service was not up to the mark.",
+          "tags": ["Hotel", "Small Rooms", "London"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Lovely hotel with a relaxing spa, but a bit overpriced.",
+          "tags": ["Hotel", "Spa", "Luxury", "London"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Decent stay, but I expected better amenities for the price.",
+          "tags": ["Hotel", "Amenities", "London"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "The best hotel in London! Fantastic service and beautiful interiors.",
+          "tags": ["Hotel", "Luxury", "Excellent Service", "London"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Great value for money and very clean rooms.",
+          "tags": ["Hotel", "Affordable", "Clean", "London"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Nice hotel, but the check-in process was too slow.",
+          "tags": ["Hotel", "Check-in", "London"]
+        }
+      ]
     },
     {
       "city": "Honolulu",
@@ -163,12 +779,87 @@
       "image": [
         "https://prod-wolt-venue-images-cdn.wolt.com/553df9d27ce4db6244fb0ba9/8088de706e432f14376bf98c2b50816c"
       ],
-      "location": [24.938031435012817, 60.16898838130677],
+      "location": [60.16898838130677, 24.938031435012817],
       "name": "Jungle Juice Bar Forum",
       "number_of_reviews": 78,
       "type": "restaurants",
+      "phone": "+1 808 123 4567",
+      "open_days": "Everyday",
+      "open_time": "09.00 - 21.00",
       "star_rating": 4.9,
-      "tags": ["fruit", "smoothie"]
+      "tags": ["fruit", "smoothie"],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Hawaii is a paradise! The beaches are stunning, and the locals are incredibly friendly.",
+          "tags": ["Hawaii", "Beaches", "Culture", "Travel"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Loved the tropical weather and lush landscapes. The food was also amazing!",
+          "tags": ["Hawaii", "Nature", "Food", "Scenery"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Beautiful place, but some tourist spots were overcrowded and pricey.",
+          "tags": ["Hawaii", "Tourism", "Expensive"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "The best sunsets I’ve ever seen! Highly recommend a visit to Maui.",
+          "tags": ["Hawaii", "Sunsets", "Maui", "Scenic"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "A beautiful destination, but transportation between islands was difficult.",
+          "tags": ["Hawaii", "Travel Issues", "Island Hopping"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "The hiking trails are breathtaking! So many incredible waterfalls and views.",
+          "tags": ["Hawaii", "Hiking", "Nature", "Waterfalls"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Great for a vacation, but everything is quite expensive, from food to activities.",
+          "tags": ["Hawaii", "Expensive", "Vacation"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "Absolutely loved the culture and history! The luau experience was fantastic.",
+          "tags": ["Hawaii", "Culture", "Luau", "History"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Great snorkeling spots! The marine life was incredible to see up close.",
+          "tags": ["Hawaii", "Snorkeling", "Marine Life"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "Wonderful place, but some areas felt too touristy and commercialized.",
+          "tags": ["Hawaii", "Tourism", "Commercialized"]
+        }
+      ]
     },
     {
       "name": "Hotel Sunroute Nara",
@@ -176,7 +867,8 @@
       "city": "Nara",
       "country": "Japan",
       "star_rating": 3.8,
-      "location": [135.83226, 34.679607],
+      "phone": "+81 75 123 4567",
+      "location": [34.679607, 135.83226],
       "image": [
         "http://pix3.agoda.net/hotelimages/109/109/109_16052212090042589176.jpg?s=312x",
         "http://pix5.agoda.net/hotelimages/109/109/109_16052211280042588226.jpg?s=312x",
@@ -190,7 +882,93 @@
       "rating_average": 8.2,
       "tags": ["japan", "hotel"],
       "rates_currency": "USD",
-      "type": "hotel"
+      "checkin_time": "14:00 - 23:59",
+      "checkout_time": "12:00",
+      "type": "hotel",
+      "rooms": [
+        {
+          "name": "Senior Deluxe City view",
+          "reschedule_date": "2025-03-31",
+          "area": "30.0m2",
+          "pax": "1",
+          "bed": "1 Queen",
+          "start_price": "651700",
+          "discounted_price": "651700",
+          "after_tax_price": "739028"
+        }
+      ],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "2025-03-15",
+          "rating": 5,
+          "comment": "Fantastic hotel with an amazing view of Mount Fuji! The service was impeccable.",
+          "tags": ["Japan", "Hotel", "Luxury", "Mount Fuji"]
+        },
+        {
+          "reviewer": "Sarah Smith",
+          "date": "2025-03-12",
+          "rating": 4,
+          "comment": "Great location in Tokyo, close to the subway. Rooms were small but well-equipped.",
+          "tags": ["Japan", "Hotel", "Tokyo", "Convenient"]
+        },
+        {
+          "reviewer": "Mike Johnson",
+          "date": "2025-03-10",
+          "rating": 3,
+          "comment": "Comfortable stay, but the hotel was a bit outdated.",
+          "tags": ["Japan", "Hotel", "Traditional", "Outdated"]
+        },
+        {
+          "reviewer": "Emily Brown",
+          "date": "2025-03-08",
+          "rating": 5,
+          "comment": "Staying at a ryokan was an unforgettable experience! Loved the hot springs.",
+          "tags": ["Japan", "Ryokan", "Onsen", "Traditional"]
+        },
+        {
+          "reviewer": "David Wilson",
+          "date": "2025-03-06",
+          "rating": 2,
+          "comment": "The hotel was too noisy, and the staff were not very accommodating.",
+          "tags": ["Japan", "Hotel", "Noisy", "Customer Service"]
+        },
+        {
+          "reviewer": "Jessica Lee",
+          "date": "2025-03-05",
+          "rating": 4,
+          "comment": "Loved the modern design and high-tech features in the hotel room.",
+          "tags": ["Japan", "Hotel", "Technology", "Modern"]
+        },
+        {
+          "reviewer": "Chris Martinez",
+          "date": "2025-03-03",
+          "rating": 3,
+          "comment": "Decent hotel, but breakfast options were very limited.",
+          "tags": ["Japan", "Hotel", "Food", "Breakfast"]
+        },
+        {
+          "reviewer": "Anna White",
+          "date": "2025-03-01",
+          "rating": 5,
+          "comment": "One of the best hotels I’ve ever stayed at! Amazing hospitality and service.",
+          "tags": ["Japan", "Hotel", "Luxury", "Service"]
+        },
+        {
+          "reviewer": "Robert King",
+          "date": "2025-02-28",
+          "rating": 4,
+          "comment": "Very clean and comfortable, but the check-in process took too long.",
+          "tags": ["Japan", "Hotel", "Clean", "Check-in"]
+        },
+        {
+          "reviewer": "Olivia Scott",
+          "date": "2025-02-26",
+          "rating": 3,
+          "comment": "The capsule hotel was an interesting experience, but not very spacious.",
+          "tags": ["Japan", "Capsule Hotel", "Unique", "Small Rooms"]
+        }
+      ]
     }
   ]
 }

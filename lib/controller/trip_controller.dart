@@ -84,3 +84,21 @@ class TripCategoryController extends GetxController {
 
   updateCategory(String selectedCategory) => category.value = selectedCategory;
 }
+
+class TripSelectedController extends GetxController {
+  TripData trip = TripData(
+    city: "",
+    description: "",
+    image: [""],
+    location: [0],
+    name: "",
+    phone: "",
+    starRating: 0,
+    type: "",
+    reviews: [],
+  );
+  RxInt tabIndex = 0.obs;
+
+  updateTrip(TripData selectedTrip) => trip = selectedTrip;
+  updateTabIndex(int index) => tabIndex.value = index;
+}

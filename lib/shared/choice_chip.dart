@@ -8,6 +8,7 @@ class WizhChip extends StatelessWidget {
     required this.selected,
     required this.onSelected,
     required this.text,
+    this.isDense = true,
     this.prefixWidget,
   });
 
@@ -15,6 +16,7 @@ class WizhChip extends StatelessWidget {
   final Function(bool) onSelected;
   final String text;
   final Widget? prefixWidget;
+  final bool isDense;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class WizhChip extends StatelessWidget {
       onSelected: onSelected,
       backgroundColor: WizhColor.whiteSmoke,
       selected: selected,
-      visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+      visualDensity: VisualDensity(horizontal: 0, vertical: isDense ? -4 : 0),
     );
   }
 }

@@ -5,16 +5,14 @@ import 'package:wizh_trips/env/app_environment.dart';
 import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/spacing.dart';
 
-/// The first screen that is shown when the app is launched.
-///
-/// Displays a background image and a call-to-action button to navigate to the
-/// [TripScreen].
-///
-/// The background image is a hotel image asset and is fully expanded to fill the
-/// screen. The call-to-action button is a [SwipeButton] with a chevron icon.
-/// When swiped, it navigates to the [TripScreen] using the [Get] package.
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+/// The OnboardingScreen widget is the initial screen that users see when they
+/// launch the app for the first time. It includes a background image of a
+/// hotel with a call-to-action text overlay and a swipe button. The swipe
+/// button allows users to navigate to the main TripScreen. Upon swiping, it
+/// also saves a flag in secure storage to indicate that the onboarding screen
+/// has been viewed, so subsequent app launches bypass this screen.
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

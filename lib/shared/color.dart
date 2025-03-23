@@ -8,6 +8,7 @@ class WizhColor {
   static const Color isabelline = Color(0xFFF8F5F2);
   static const Color whiteSmoke = Color(0xFFF7F5F3);
   static const Color beaver = Color(0xFF8E7A67);
+  static const Color taupe = Color(0xFF4C3D2F);
 
   // GRADIENT
 

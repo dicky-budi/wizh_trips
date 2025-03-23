@@ -16,6 +16,7 @@ class PopularTrip extends StatefulWidget {
 class PopularTripState extends State<PopularTrip> {
   final CarouselController controller = CarouselController(initialItem: 1);
   final TripPopularController c = Get.find<TripPopularController>();
+  final TripSelectedController tripSelectedController = Get.find();
 
   @override
   void initState() {
@@ -98,6 +99,10 @@ class PopularTripState extends State<PopularTrip> {
           itemSnapping: true,
           itemExtent: MediaQuery.of(context).size.width * 0.8,
           elevation: 2,
+          onTap: (int index) {
+            tripSelectedController.updateTrip(trip![index]);
+            Get.rootDelegate.toNamed('/detail');
+          },
           scrollDirection: Axis.horizontal,
           children: List<Widget>.generate(5, (int index) {
             return Container(
