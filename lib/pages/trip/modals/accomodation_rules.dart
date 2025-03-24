@@ -81,7 +81,7 @@ showAccommodationModal({
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: size16,
-                              color: WizhColor.eerieBlack.withOpacity(0.4),
+                              color: WizhColor.eerieBlack.withValues(alpha: .4),
                             ),
                           ),
                           Text(
@@ -102,7 +102,7 @@ showAccommodationModal({
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: size16,
-                              color: WizhColor.eerieBlack.withOpacity(0.4),
+                              color: WizhColor.eerieBlack.withValues(alpha: .4),
                             ),
                           ),
                           Text(
@@ -122,7 +122,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.4),
+                      color: WizhColor.eerieBlack.withValues(alpha: .4),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -140,7 +140,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size4),
@@ -149,7 +149,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size4),
@@ -158,7 +158,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -176,7 +176,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -194,7 +194,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -212,7 +212,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -230,7 +230,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -248,7 +248,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                   const SizedBox(height: size12),
@@ -266,7 +266,7 @@ showAccommodationModal({
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: size12,
-                      color: WizhColor.eerieBlack.withOpacity(0.6),
+                      color: WizhColor.eerieBlack.withValues(alpha: .6),
                     ),
                   ),
                 ],

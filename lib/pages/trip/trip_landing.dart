@@ -70,7 +70,7 @@ class TripListPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: size8),
+                  const SizedBox(height: size4),
                   TextFormField(
                     textAlignVertical: TextAlignVertical.center,
                     controller: TextEditingController(),
@@ -99,41 +99,9 @@ class TripListPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: size12),
+                  const SizedBox(height: size4),
                   PopularTrip(),
                   CategorizedTrip(),
-                  // ListView.builder(
-                  //   itemCount: trips.length,
-                  //   itemBuilder: (context, index) {
-                  //     final trip = trips[index];
-                  //     return Card(
-                  //       margin: EdgeInsets.all(10),
-                  //       child: ListTile(
-                  //         leading: Hero(
-                  //           tag: trip.title,
-                  //           child: Image.network(
-                  //             trip.imageUrl,
-                  //             width: 80,
-                  //             height: 80,
-                  //             fit: BoxFit.cover,
-                  //           ),
-                  //         ),
-                  //         title: Text(trip.title),
-                  //         subtitle: Text(
-                  //           "Price: \$${trip.price.toStringAsFixed(2)} | Rating: ${trip.rating}",
-                  //         ),
-                  //         onTap: () {
-                  //           // Navigator.push(
-                  //           //   context,
-                  //           //   MaterialPageRoute(
-                  //           //     builder: (context) => TripDetailPage(trip: trip),
-                  //           //   ),
-                  //           // );
-                  //         },
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
                 ],
               ),
             ),

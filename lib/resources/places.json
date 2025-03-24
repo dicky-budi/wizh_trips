@@ -80,6 +80,9 @@
           "reschedule_date": "2025-03-30",
           "area": "22.0m2",
           "pax": "2",
+          "image": [
+            "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x"
+          ],
           "bed": "1 Queen",
           "start_price": "1136723",
           "discounted_price": "588731",
@@ -88,6 +91,9 @@
         {
           "name": "Senior Deluxe City view",
           "reschedule_date": "2025-03-31",
+          "image": [
+            "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x"
+          ],
           "area": "30.0m2",
           "pax": "1",
           "bed": "1 Queen",
@@ -289,6 +295,9 @@
         {
           "name": "Senior Deluxe City view",
           "reschedule_date": "2025-03-31",
+          "image": [
+            "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x"
+          ],
           "area": "25.0m2",
           "pax": "1",
           "bed": "1 Queen",
@@ -489,6 +498,9 @@
         {
           "name": "Senior Deluxe City view",
           "reschedule_date": "2025-03-31",
+          "image": [
+            "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x"
+          ],
           "area": "25.0m2",
           "pax": "1",
           "bed": "1 Queen",
@@ -689,6 +701,9 @@
         {
           "name": "Senior Deluxe Room",
           "reschedule_date": "2025-03-31",
+          "image": [
+            "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x"
+          ],
           "area": "23.0m2",
           "pax": "1",
           "bed": "1 Queen",
@@ -889,6 +904,9 @@
         {
           "name": "Senior Deluxe City view",
           "reschedule_date": "2025-03-31",
+          "image": [
+            "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x"
+          ],
           "area": "30.0m2",
           "pax": "1",
           "bed": "1 Queen",

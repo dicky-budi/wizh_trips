@@ -1,19 +1,18 @@
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:wizh_trips/controller/trip_controller.dart';
 import 'package:wizh_trips/entity/trip_entity.dart';
-import 'package:wizh_trips/pages/trip/image_view.dart';
 import 'package:wizh_trips/pages/trip/modals/accomodation_rules.dart'
     show showAccommodationModal;
-import 'package:wizh_trips/pages/trip/trip_location.dart';
+import 'package:wizh_trips/pages/trip/tabs/about.dart';
+import 'package:wizh_trips/pages/trip/tabs/overview.dart';
+import 'package:wizh_trips/pages/trip/tabs/reviews.dart';
 import 'package:wizh_trips/shared/choice_chip.dart';
 import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/spacing.dart';
+import 'package:wizh_trips/shared/swipe_button.dart';
 
 class TripDetailPage extends StatefulWidget {
   const TripDetailPage({super.key});
@@ -75,14 +74,13 @@ class TripDetailPageState extends State<TripDetailPage>
 
   Widget rating() {
     return Row(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(Icons.star, size: size12, color: Color(0xFFA98660)),
+        Icon(Icons.star, size: size12, color: WizhColor.cafe),
         const SizedBox(width: size4),
         Text(
           "${tripSelectedController.trip.starRating} (${NumberFormat.decimalPattern('id_ID').format(tripSelectedController.trip.numberOfReviews)} Reviews)",
           style: TextStyle(
-            color: Color(0xFF574938),
+            color: WizhColor.oliveCamouflage,
             fontSize: size12,
             fontWeight: FontWeight.bold,
           ),
@@ -110,296 +108,6 @@ class TripDetailPageState extends State<TripDetailPage>
     );
   }
 
-  Widget openingHours() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Opening Hours",
-          style: TextStyle(
-            color: WizhColor.eerieBlack,
-            fontSize: size16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: size8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              tripSelectedController.trip.openDays ?? "",
-              style: TextStyle(color: WizhColor.eerieBlack, fontSize: size12),
-            ),
-            const SizedBox(width: size8),
-            Text(
-              tripSelectedController.trip.openTime ?? "",
-              style: TextStyle(color: WizhColor.eerieBlack, fontSize: size12),
-            ),
-          ],
-        ),
-        const SizedBox(height: size12),
-      ],
-    );
-  }
-
-  Widget contact() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Contact",
-          style: TextStyle(
-            color: WizhColor.eerieBlack,
-            fontSize: size16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: size12),
-        Row(
-          children: [
-            Expanded(
-              flex: 0,
-              child: Icon(
-                Icons.pin_drop_outlined,
-                size: size20,
-                color: WizhColor.beaver,
-              ),
-            ),
-            const SizedBox(width: size12),
-            Expanded(
-              flex: 1,
-              child: Text(
-                "${tripSelectedController.trip.address ?? ""}, ${tripSelectedController.trip.city}, ${tripSelectedController.trip.country}",
-                style: TextStyle(color: WizhColor.eerieBlack, fontSize: size12),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: size8),
-        Row(
-          children: [
-            Expanded(
-              flex: 0,
-              child: Icon(Icons.phone, size: size20, color: WizhColor.beaver),
-            ),
-            const SizedBox(width: size12),
-            Expanded(
-              flex: 1,
-              child: Text(
-                tripSelectedController.trip.phone,
-                style: TextStyle(color: WizhColor.eerieBlack, fontSize: size12),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget maps() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Maps",
-          style: TextStyle(
-            color: WizhColor.eerieBlack,
-            fontSize: size16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: size12),
-        SizedBox(
-          height: 200,
-          child: TripLocation(location: tripSelectedController.trip.location),
-        ),
-      ],
-    );
-  }
-
-  Widget photos() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Photos",
-          style: TextStyle(
-            color: WizhColor.eerieBlack,
-            fontSize: size16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: size12),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Wrap(
-            direction: Axis.horizontal,
-            spacing: size8,
-            children: [
-              for (var image in tripSelectedController.trip.image)
-                InkWell(
-                  onTap: () {
-                    Get.to(() => ImageView());
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(size8),
-                    child: CachedNetworkImage(
-                      imageUrl: image,
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget overviewTab() {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            tripSelectedController.trip.description,
-            textAlign: TextAlign.justify,
-            style: TextStyle(color: WizhColor.eerieBlack, fontSize: size12),
-          ),
-          const SizedBox(height: size12),
-          tripSelectedController.trip.type == "restaurants"
-              ? openingHours()
-              : SizedBox(),
-          photos(),
-        ],
-      ),
-    );
-  }
-
-  Widget aboutTab() {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [contact(), const SizedBox(height: size12), maps()],
-      ),
-    );
-  }
-
-  Widget userReview() {
-    return Column(
-      children: [
-        for (var i = 0; i < tripSelectedController.trip.reviews.length; i++)
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    tripSelectedController.trip.reviews[i].reviewer,
-                    style: TextStyle(
-                      color: WizhColor.eerieBlack,
-                      fontSize: size16,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "${tripSelectedController.trip.reviews[i].rating} ",
-                        style: TextStyle(
-                          color: WizhColor.eerieBlack,
-                          fontSize: size20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "/ 5",
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: size16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: size2),
-              Text(
-                DateFormat('dd MMM yyyy').format(
-                  DateTime.parse(tripSelectedController.trip.reviews[i].date),
-                ),
-                style: TextStyle(color: Colors.grey[600], fontSize: size12),
-              ),
-              const SizedBox(height: size12),
-              Text(
-                tripSelectedController.trip.reviews[i].comment,
-                style: TextStyle(
-                  color: WizhColor.eerieBlack,
-                  fontSize: size16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: size12),
-              if (i < tripSelectedController.trip.reviews.length - 1)
-                Column(
-                  children: [
-                    Divider(height: size4, thickness: 1.5),
-                    const SizedBox(height: size12),
-                  ],
-                ),
-            ],
-          ),
-      ],
-    );
-  }
-
-  Widget reviewTab() {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                "${tripSelectedController.trip.starRating} ",
-                style: TextStyle(
-                  color: WizhColor.eerieBlack,
-                  fontSize: size32,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                "/ 5",
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: size20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(width: size12),
-              Text(
-                "From ${NumberFormat.decimalPattern('id_ID').format(tripSelectedController.trip.numberOfReviews)} reviews",
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: size20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: size12),
-          userReview(),
-        ],
-      ),
-    );
-  }
-
   Widget tabContent() {
     return Obx(
       () => IndexedStack(
@@ -408,19 +116,129 @@ class TripDetailPageState extends State<TripDetailPage>
           Visibility(
             visible: tripSelectedController.tabIndex.value == 0,
             maintainState: true,
-            child: overviewTab(),
+            child: Overview(),
           ),
           Visibility(
             visible: tripSelectedController.tabIndex.value == 1,
             maintainState: true,
-            child: reviewTab(),
+            child: Reviews(),
           ),
           Visibility(
             visible: tripSelectedController.tabIndex.value == 2,
             maintainState: true,
-            child: aboutTab(),
+            child: About(),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget accommodationRules() {
+    return Padding(
+      padding: const EdgeInsets.only(top: size12),
+      child: Card(
+        elevation: size4,
+        margin: EdgeInsets.symmetric(horizontal: size2),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(size8),
+        ),
+        color: WizhColor.springWood,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: size8,
+            right: size8,
+            bottom: size8,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: size8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Accommodation Rules",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: size16,
+                      color: WizhColor.eerieBlack,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      showAccommodationModal(
+                        tripSelectedController: tripSelectedController,
+                      );
+                    },
+                    child: Text(
+                      "See all",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: size12,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: size8),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Check-in",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: size16,
+                          color: WizhColor.eerieBlack.withValues(alpha: .4),
+                        ),
+                      ),
+                      Text(
+                        tripSelectedController.trip.checkinTime ?? "",
+                        style: TextStyle(
+                          fontSize: size16,
+                          color: WizhColor.eerieBlack,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.2),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Check-out",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: size16,
+                          color: WizhColor.eerieBlack.withValues(alpha: .4),
+                        ),
+                      ),
+                      Text(
+                        tripSelectedController.trip.checkoutTime ?? "",
+                        style: TextStyle(
+                          fontSize: size16,
+                          color: WizhColor.eerieBlack,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: size8),
+              Text(
+                "Want to check in early? Fill out the Special Request form on the booking page.",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: size12,
+                  color: WizhColor.eerieBlack.withValues(alpha: .4),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -449,10 +267,8 @@ class TripDetailPageState extends State<TripDetailPage>
                         topRight: Radius.circular(size12),
                       ),
                       image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: CachedNetworkImageProvider(
-                          "http://pix5.agoda.net/hotelimages/1/-1/d821f80943f96ebda33f5a019fa94df4.jpg?s=312x",
-                        ),
+                        fit: BoxFit.cover,
+                        image: CachedNetworkImageProvider(room.image.first),
                       ),
                     ),
                     child: SizedBox(
@@ -520,7 +336,7 @@ class TripDetailPageState extends State<TripDetailPage>
                                             style: TextStyle(
                                               fontSize: size12,
                                               color: WizhColor.eerieBlack
-                                                  .withOpacity(.3),
+                                                  .withValues(alpha: .4),
                                             ),
                                           ),
                                         ],
@@ -539,7 +355,7 @@ class TripDetailPageState extends State<TripDetailPage>
                                             style: TextStyle(
                                               fontSize: size12,
                                               color: WizhColor.eerieBlack
-                                                  .withOpacity(.3),
+                                                  .withValues(alpha: .4),
                                             ),
                                           ),
                                         ],
@@ -558,7 +374,7 @@ class TripDetailPageState extends State<TripDetailPage>
                                             style: TextStyle(
                                               fontSize: size12,
                                               color: WizhColor.eerieBlack
-                                                  .withOpacity(.3),
+                                                  .withValues(alpha: .4),
                                             ),
                                           ),
                                         ],
@@ -597,7 +413,7 @@ class TripDetailPageState extends State<TripDetailPage>
                                                   "IDR ${NumberFormat.decimalPattern('id_ID').format(int.parse(room.afterTaxPrice))}",
                                               style: TextStyle(
                                                 color: WizhColor.eerieBlack
-                                                    .withOpacity(.3),
+                                                    .withValues(alpha: .4),
                                                 fontSize: size12,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -619,25 +435,15 @@ class TripDetailPageState extends State<TripDetailPage>
                             ],
                           ),
                         ),
-                        SwipeButton(
-                          thumbPadding: EdgeInsets.all(size4),
-                          thumb: Icon(
-                            Icons.chevron_right,
-                            color: WizhColor.springWood,
-                          ),
-                          elevationThumb: size4,
-                          elevationTrack: size4,
-                          activeTrackColor: Color(0xFF443C30),
-                          activeThumbColor: Color(0xFF9B8774),
-                          child: Text(
-                            "Book Now",
-                            style: TextStyle(
-                              color: WizhColor.springWood,
-                              fontSize: size16,
-                            ),
-                          ),
+                        WizhSwipeButton(
+                          text: "Book Now",
                           onSwipe: () async {
-                            Get.snackbar("Coming Soon", "Please Stay Tuned!");
+                            Get.snackbar(
+                              "Coming Soon",
+                              "Please Stay Tuned!",
+                              backgroundColor: WizhColor.beaver,
+                              colorText: WizhColor.isabelline,
+                            );
                           },
                         ),
                         const SizedBox(height: size8),
@@ -676,122 +482,13 @@ class TripDetailPageState extends State<TripDetailPage>
     );
   }
 
-  Widget accommodationRules() {
-    return Padding(
-      padding: const EdgeInsets.only(top: size12),
-      child: Card(
-        elevation: size4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(size8),
-        ),
-        color: WizhColor.springWood,
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: size8,
-            right: size8,
-            bottom: size8,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: size8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Accommodation Rules",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: size16,
-                      color: WizhColor.eerieBlack,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      showAccommodationModal(
-                        tripSelectedController: tripSelectedController,
-                      );
-                    },
-                    child: Text(
-                      "See all",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: size12,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: size8),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Check-in",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: size16,
-                          color: WizhColor.eerieBlack.withOpacity(0.4),
-                        ),
-                      ),
-                      Text(
-                        tripSelectedController.trip.checkinTime ?? "",
-                        style: TextStyle(
-                          fontSize: size16,
-                          color: WizhColor.eerieBlack,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.2),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Check-out",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: size16,
-                          color: WizhColor.eerieBlack.withOpacity(0.4),
-                        ),
-                      ),
-                      Text(
-                        tripSelectedController.trip.checkoutTime ?? "",
-                        style: TextStyle(
-                          fontSize: size16,
-                          color: WizhColor.eerieBlack,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: size8),
-              Text(
-                "Want to check in early? Fill out the Special Request form on the booking page.",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: size12,
-                  color: WizhColor.eerieBlack.withOpacity(0.4),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           CachedNetworkImage(
-            imageUrl: tripSelectedController.trip.image[0],
+            imageUrl: tripSelectedController.trip.image.first,
             fit: BoxFit.cover,
             width: double.infinity,
             height: MediaQuery.of(context).size.height * 0.4,
@@ -848,26 +545,29 @@ class TripDetailPageState extends State<TripDetailPage>
                           const SizedBox(height: size8),
                           rating(),
                           const SizedBox(height: size12),
-                          Card(
-                            elevation: size4,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(size8),
-                            ),
-                            color: WizhColor.springWood,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: size8,
-                                vertical: size8,
-                              ),
-                              child: Column(
-                                children: [
-                                  tabBar(),
-                                  const SizedBox(height: size16),
-                                  tabContent(),
-                                ],
-                              ),
-                            ),
-                          ),
+                          // Card(
+                          //   elevation: size4,
+                          //   shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(size8),
+                          //   ),
+                          //   color: WizhColor.springWood,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.symmetric(
+                          //       horizontal: size8,
+                          //       vertical: size8,
+                          //     ),
+                          //     child: Column(
+                          //       children: [
+                          //         tabBar(),
+                          //         const SizedBox(height: size16),
+                          //         tabContent(),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
+                          tabBar(),
+                          const SizedBox(height: size16),
+                          tabContent(),
                           tripSelectedController.trip.type == "hotel"
                               ? accommodationRules()
                               : const SizedBox(),

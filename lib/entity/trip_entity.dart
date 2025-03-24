@@ -130,6 +130,7 @@ class Rooms {
   final String startPrice;
   final String discountedPrice;
   final String afterTaxPrice;
+  final List<String> image;
 
   Rooms({
     required this.name,
@@ -140,6 +141,7 @@ class Rooms {
     required this.startPrice,
     required this.discountedPrice,
     required this.afterTaxPrice,
+    required this.image,
   });
 
   factory Rooms.fromJson(Map<String, dynamic> json) => Rooms(
@@ -151,5 +153,6 @@ class Rooms {
     startPrice: json['start_price'],
     discountedPrice: json['discounted_price'],
     afterTaxPrice: json['after_tax_price'],
+    image: json['image'] != null ? List<String>.from(json['image']) : [],
   );
 }

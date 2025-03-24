@@ -5,15 +5,12 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:wizh_trips/controller/trip_controller.dart';
 import 'package:wizh_trips/shared/color.dart';
+import 'package:wizh_trips/shared/spacing.dart';
 
-class ImageView extends StatefulWidget {
-  const ImageView({super.key});
+class ImageView extends StatelessWidget {
+  final int index;
+  ImageView({super.key, required this.index});
 
-  @override
-  State<ImageView> createState() => _ImageViewState();
-}
-
-class _ImageViewState extends State<ImageView> {
   final TripSelectedController tripSelectedController = Get.find();
 
   @override
@@ -37,12 +34,13 @@ class _ImageViewState extends State<ImageView> {
               ),
             );
           },
+          pageController: PageController(initialPage: index),
           itemCount: tripSelectedController.trip.image.length,
           loadingBuilder:
               (context, event) => Center(
                 child: SizedBox(
-                  width: 20.0,
-                  height: 20.0,
+                  width: size20,
+                  height: size20,
                   child: CircularProgressIndicator(
                     value:
                         event == null

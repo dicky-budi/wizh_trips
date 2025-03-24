@@ -40,7 +40,7 @@ class PopularTripState extends State<PopularTrip> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.star, size: size12, color: Colors.yellow),
+            Icon(Icons.star, size: size12, color: WizhColor.cafe),
             const SizedBox(width: size4),
             c.obx(
               (trip) => Text(
@@ -69,7 +69,11 @@ class PopularTripState extends State<PopularTrip> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.location_on_outlined, size: size16, color: Colors.white),
+            Icon(
+              Icons.location_on_outlined,
+              size: size16,
+              color: WizhColor.isabelline,
+            ),
             const SizedBox(width: size4),
             c.obx(
               (trip) => Text(
@@ -98,7 +102,7 @@ class PopularTripState extends State<PopularTrip> {
           shrinkExtent: 250,
           itemSnapping: true,
           itemExtent: MediaQuery.of(context).size.width * 0.8,
-          elevation: 2,
+          elevation: size2,
           onTap: (int index) {
             tripSelectedController.updateTrip(trip![index]);
             Get.rootDelegate.toNamed('/detail');
@@ -111,11 +115,11 @@ class PopularTripState extends State<PopularTrip> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black38,
+                    WizhColor.darkenImage,
                     BlendMode.darken,
                   ),
                   image: CachedNetworkImageProvider(
-                    trip?[index].image[0] ?? "",
+                    trip?[index].image.first ?? "",
                   ),
                 ),
               ),

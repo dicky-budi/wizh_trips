@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:wizh_trips/controller/trip_controller.dart';
 import 'package:wizh_trips/entity/trip_entity.dart';
 import 'package:wizh_trips/shared/choice_chip.dart';
@@ -9,22 +10,12 @@ import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/constants.dart';
 import 'package:wizh_trips/shared/spacing.dart';
 
-class CategorizedTrip extends StatefulWidget {
-  const CategorizedTrip({super.key});
+class CategorizedTrip extends StatelessWidget {
+  CategorizedTrip({super.key});
 
-  @override
-  State<CategorizedTrip> createState() => CategorizedTripState();
-}
-
-class CategorizedTripState extends State<CategorizedTrip> {
   final TripCategoryController tripCategoryController = Get.find();
   final TripCategorizedController tripCategorizedController = Get.find();
   final TripSelectedController tripSelectedController = Get.find();
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   Widget tripsCard(TripData tripData) {
     return InkWell(
@@ -52,7 +43,9 @@ class CategorizedTripState extends State<CategorizedTrip> {
                         borderRadius: BorderRadius.circular(size12),
                         image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: CachedNetworkImageProvider(tripData.image[0]),
+                          image: CachedNetworkImageProvider(
+                            tripData.image.first,
+                          ),
                         ),
                       ),
                       child: SizedBox(height: size120),
@@ -103,10 +96,10 @@ class CategorizedTripState extends State<CategorizedTrip> {
                                         children: [
                                           TextSpan(
                                             text:
-                                                "(${tripData.numberOfReviews.toString()})",
+                                                "(${NumberFormat.decimalPattern('id_ID').format(tripData.numberOfReviews)} Reviews)",
                                             style: TextStyle(
                                               color: WizhColor.eerieBlack
-                                                  .withOpacity(.4),
+                                                  .withValues(alpha: .4),
                                               fontSize: size12,
                                               fontWeight: FontWeight.w600,
                                             ),

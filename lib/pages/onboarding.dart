@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:get/route_manager.dart';
 import 'package:wizh_trips/env/app_environment.dart';
 import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/spacing.dart';
+import 'package:wizh_trips/shared/swipe_button.dart';
 
 /// The OnboardingScreen widget is the initial screen that users see when they
 /// launch the app for the first time. It includes a background image of a
@@ -52,20 +52,8 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-                SwipeButton(
-                  thumbPadding: EdgeInsets.all(size4),
-                  thumb: Icon(Icons.chevron_right, color: WizhColor.springWood),
-                  elevationThumb: size4,
-                  elevationTrack: size4,
-                  activeTrackColor: Color(0xFF443C30),
-                  activeThumbColor: Color(0xFF9B8774),
-                  child: Text(
-                    "Let's Go",
-                    style: TextStyle(
-                      color: WizhColor.springWood,
-                      fontSize: size16,
-                    ),
-                  ),
+                WizhSwipeButton(
+                  text: "Let's Go",
                   onSwipe: () async {
                     await SecureStorage().save('first_time', 'true');
                     Get.rootDelegate.toNamed('/');

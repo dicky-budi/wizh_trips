@@ -1,3 +1,5 @@
+/* this file contains tokens for all the spacings used in the app */
+
 const double size0 = 0.0;
 const double size2 = 2.0;
 const double size4 = 4.0;
