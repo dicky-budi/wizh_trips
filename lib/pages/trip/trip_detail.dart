@@ -145,8 +145,8 @@ class TripDetailPageState extends State<TripDetailPage>
         color: WizhColor.springWood,
         child: Padding(
           padding: const EdgeInsets.only(
-            left: size8,
-            right: size8,
+            left: size12,
+            right: size12,
             bottom: size8,
           ),
           child: Column(

@@ -1,18 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:typewritertext/typewritertext.dart';
+import 'package:wizh_trips/controller/trip_controller.dart';
 import 'package:wizh_trips/pages/trip/categorized_trip.dart';
 import 'package:wizh_trips/pages/trip/popular_trip.dart';
 import 'package:wizh_trips/shared/color.dart';
 import 'package:wizh_trips/shared/spacing.dart';
+import 'package:wizh_trips/shared/trip_card.dart';
 
-class TripListPage extends StatelessWidget {
+class TripListPage extends StatefulWidget {
   const TripListPage({super.key});
+
+  @override
+  State<TripListPage> createState() => TripListPageState();
+}
+
+class TripListPageState extends State<TripListPage> {
+  final TripCategorizedController tripCategorizedController = Get.find();
+  final TripSelectedController tripSelectedController = Get.find();
+  final TextEditingController searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    searchController.text = tripCategorizedController.search.value;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(gradient: WizhColor.gradientLinearBg),
         child: SafeArea(
           child: Padding(
@@ -73,8 +92,14 @@ class TripListPage extends StatelessWidget {
                   const SizedBox(height: size4),
                   TextFormField(
                     textAlignVertical: TextAlignVertical.center,
-                    controller: TextEditingController(),
+                    controller: searchController,
                     cursorColor: WizhColor.eerieBlack,
+                    onFieldSubmitted: (value) {
+                      tripCategorizedController.filterBySearch(value);
+                    },
+                    onChanged: (value) {
+                      tripCategorizedController.updateSearch(value);
+                    },
                     decoration: InputDecoration(
                       isDense: true,
                       contentPadding: EdgeInsets.zero,
@@ -100,8 +125,32 @@ class TripListPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: size4),
-                  PopularTrip(),
-                  CategorizedTrip(),
+                  tripCategorizedController.obx(
+                    (trip) =>
+                        (tripCategorizedController.search.value.isEmpty)
+                            ? Column(
+                              children: [PopularTrip(), CategorizedTrip()],
+                            )
+                            : Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: size12,
+                              ),
+                              child: Column(
+                                children: [
+                                  for (final trip
+                                      in tripCategorizedController
+                                          .categorizedTrip)
+                                    TripCard(
+                                      tripData: trip,
+                                      onTap: () {
+                                        tripSelectedController.updateTrip(trip);
+                                        Get.rootDelegate.toNamed('/detail');
+                                      },
+                                    ),
+                                ],
+                              ),
+                            ),
+                  ),
                 ],
               ),
             ),
