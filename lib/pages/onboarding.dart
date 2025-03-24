@@ -56,7 +56,7 @@ class OnboardingScreen extends StatelessWidget {
                   text: "Let's Go",
                   onSwipe: () async {
                     await SecureStorage().save('first_time', 'true');
-                    Get.rootDelegate.toNamed('/home');
+                    Get.rootDelegate.offNamed('/home');
                   },
                 ),
               ],

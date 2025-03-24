@@ -278,6 +278,7 @@ class TripDetailPageState extends State<TripDetailPage>
                   ),
                 ),
                 Expanded(
+                  flex: 0,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: size12,
@@ -286,175 +287,171 @@ class TripDetailPageState extends State<TripDetailPage>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                room.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: size16,
-                                  fontWeight: FontWeight.bold,
-                                  color: WizhColor.eerieBlack,
-                                ),
-                              ),
-                              const SizedBox(height: size4),
-                              Text(
-                                "100% Refund & Reschedule until ${DateFormat('dd MMM yyyy').format(DateTime.parse(room.rescheduleDate))}",
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: size12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green[800],
-                                ),
-                              ),
-                              const SizedBox(height: size8),
-                              Divider(height: size4, thickness: 1),
-                              const SizedBox(height: size8),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.width_wide,
-                                            size: size16,
-                                            color: WizhColor.eerieBlack,
-                                          ),
-                                          const SizedBox(width: size8),
-                                          Text(
-                                            room.area,
-                                            style: TextStyle(
-                                              fontSize: size12,
-                                              color: WizhColor.eerieBlack
-                                                  .withValues(alpha: .4),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: size4),
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.person,
-                                            size: size16,
-                                            color: WizhColor.eerieBlack,
-                                          ),
-                                          const SizedBox(width: size8),
-                                          Text(
-                                            "${room.pax} Guest(s)",
-                                            style: TextStyle(
-                                              fontSize: size12,
-                                              color: WizhColor.eerieBlack
-                                                  .withValues(alpha: .4),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: size4),
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.bed,
-                                            size: size16,
-                                            color: WizhColor.eerieBlack,
-                                          ),
-                                          const SizedBox(width: size8),
-                                          Text(
-                                            room.bed,
-                                            style: TextStyle(
-                                              fontSize: size12,
-                                              color: WizhColor.eerieBlack
-                                                  .withValues(alpha: .4),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        "IDR ${NumberFormat.decimalPattern('id_ID').format(int.parse(room.discountedPrice))}",
-                                        style: TextStyle(
-                                          fontSize: size20,
-                                          color: WizhColor.beaver,
-                                          fontWeight: FontWeight.bold,
+                        Text(
+                          room.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: size16,
+                            fontWeight: FontWeight.bold,
+                            color: WizhColor.eerieBlack,
+                          ),
+                        ),
+                        const SizedBox(height: size4),
+                        Text(
+                          "100% Refund & Reschedule until ${DateFormat('dd MMM yyyy').format(DateTime.parse(room.rescheduleDate))}",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: size12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green[800],
+                          ),
+                        ),
+                        const SizedBox(height: size12),
+                        Divider(height: size4, thickness: 1),
+                        const SizedBox(height: size12),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.width_wide,
+                                      size: size16,
+                                      color: WizhColor.eerieBlack,
+                                    ),
+                                    const SizedBox(width: size8),
+                                    Text(
+                                      room.area,
+                                      style: TextStyle(
+                                        fontSize: size12,
+                                        color: WizhColor.eerieBlack.withValues(
+                                          alpha: .4,
                                         ),
                                       ),
-                                      Text(
-                                        "/room/night",
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: size4),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.person,
+                                      size: size16,
+                                      color: WizhColor.eerieBlack,
+                                    ),
+                                    const SizedBox(width: size8),
+                                    Text(
+                                      "${room.pax} Guest(s)",
+                                      style: TextStyle(
+                                        fontSize: size12,
+                                        color: WizhColor.eerieBlack.withValues(
+                                          alpha: .4,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: size4),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.bed,
+                                      size: size16,
+                                      color: WizhColor.eerieBlack,
+                                    ),
+                                    const SizedBox(width: size8),
+                                    Text(
+                                      room.bed,
+                                      style: TextStyle(
+                                        fontSize: size12,
+                                        color: WizhColor.eerieBlack.withValues(
+                                          alpha: .4,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "IDR ${NumberFormat.decimalPattern('id_ID').format(int.parse(room.discountedPrice))}",
+                                  style: TextStyle(
+                                    fontSize: size20,
+                                    color: WizhColor.beaver,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "/room/night",
+                                  style: TextStyle(
+                                    fontSize: size12,
+                                    color: WizhColor.taupe,
+                                  ),
+                                ),
+                                const SizedBox(height: size4),
+                                RichText(
+                                  text: TextSpan(
+                                    text: "(after taxes: ",
+                                    style: TextStyle(
+                                      fontSize: size12,
+                                      color: WizhColor.taupe,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text:
+                                            "IDR ${NumberFormat.decimalPattern('id_ID').format(int.parse(room.afterTaxPrice))}",
+                                        style: TextStyle(
+                                          color: WizhColor.eerieBlack
+                                              .withValues(alpha: .4),
+                                          fontSize: size12,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: ")",
                                         style: TextStyle(
                                           fontSize: size12,
                                           color: WizhColor.taupe,
                                         ),
                                       ),
-                                      const SizedBox(height: size4),
-                                      RichText(
-                                        text: TextSpan(
-                                          text: "(after taxes: ",
-                                          style: TextStyle(
-                                            fontSize: size12,
-                                            color: WizhColor.taupe,
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text:
-                                                  "IDR ${NumberFormat.decimalPattern('id_ID').format(int.parse(room.afterTaxPrice))}",
-                                              style: TextStyle(
-                                                color: WizhColor.eerieBlack
-                                                    .withValues(alpha: .4),
-                                                fontSize: size12,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: ")",
-                                              style: TextStyle(
-                                                fontSize: size12,
-                                                color: WizhColor.taupe,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
                                     ],
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: size4),
-                        Expanded(
-                          flex: 0,
-                          child: WizhSwipeButton(
-                            text: "Book Now",
-                            onSwipe: () async {
-                              Get.snackbar(
-                                "Coming Soon",
-                                "Please Stay Tuned!",
-                                backgroundColor: WizhColor.beaver,
-                                colorText: WizhColor.isabelline,
-                              );
-                            },
-                          ),
-                        ),
-                        const SizedBox(height: size4),
                       ],
                     ),
                   ),
                 ),
+                Expanded(
+                  flex: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(size12),
+                    child: WizhSwipeButton(
+                      text: "Book Now",
+                      onSwipe: () async {
+                        Get.snackbar(
+                          "Coming Soon",
+                          "Please Stay Tuned!",
+                          backgroundColor: WizhColor.beaver,
+                          colorText: WizhColor.isabelline,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(height: size4),
               ],
             ),
           ),
@@ -488,103 +485,112 @@ class TripDetailPageState extends State<TripDetailPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          CachedNetworkImage(
-            imageUrl: tripSelectedController.trip.image.first,
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.4,
-          ),
-          Positioned(top: size12, left: size16, child: backBtn()),
-          DraggableScrollableSheet(
-            initialChildSize: .7,
-            minChildSize: .7,
-            maxChildSize: 1,
-            snap: true,
-            snapSizes: [0.75, 1],
-            builder:
-                (context, controller) => ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(size20),
-                    topRight: Radius.circular(size20),
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(color: WizhColor.springWood),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: size16,
-                        vertical: size20,
-                      ),
-                      child: ListView(
-                        shrinkWrap: true,
-                        controller: controller,
-                        padding: EdgeInsets.zero,
-                        children: [
-                          Row(
-                            children: [
-                              for (final tag
-                                  in tripSelectedController.trip.tags ?? [])
-                                Row(
-                                  children: [
-                                    WizhChip(
-                                      selected: true,
-                                      onSelected: (value) {},
-                                      text: tag,
-                                    ),
-                                    const SizedBox(width: size8),
-                                  ],
-                                ),
-                            ],
-                          ),
-                          const SizedBox(height: size8),
-                          Text(
-                            tripSelectedController.trip.name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: size24,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          return;
+        }
+        Get.rootDelegate.offNamed("/home");
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            CachedNetworkImage(
+              imageUrl: tripSelectedController.trip.image.first,
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.4,
+            ),
+            Positioned(top: size12, left: size16, child: backBtn()),
+            DraggableScrollableSheet(
+              initialChildSize: .7,
+              minChildSize: .7,
+              maxChildSize: 1,
+              snap: true,
+              snapSizes: [0.75, 1],
+              builder:
+                  (context, controller) => ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(size20),
+                      topRight: Radius.circular(size20),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(color: WizhColor.springWood),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: size16,
+                          vertical: size20,
+                        ),
+                        child: ListView(
+                          shrinkWrap: true,
+                          controller: controller,
+                          padding: EdgeInsets.zero,
+                          children: [
+                            Row(
+                              children: [
+                                for (final tag
+                                    in tripSelectedController.trip.tags ?? [])
+                                  Row(
+                                    children: [
+                                      WizhChip(
+                                        selected: true,
+                                        onSelected: (value) {},
+                                        text: tag,
+                                      ),
+                                      const SizedBox(width: size8),
+                                    ],
+                                  ),
+                              ],
                             ),
-                          ),
-                          const SizedBox(height: size8),
-                          rating(),
-                          const SizedBox(height: size12),
-                          // Card(
-                          //   elevation: size4,
-                          //   shape: RoundedRectangleBorder(
-                          //     borderRadius: BorderRadius.circular(size8),
-                          //   ),
-                          //   color: WizhColor.springWood,
-                          //   child: Padding(
-                          //     padding: const EdgeInsets.symmetric(
-                          //       horizontal: size8,
-                          //       vertical: size8,
-                          //     ),
-                          //     child: Column(
-                          //       children: [
-                          //         tabBar(),
-                          //         const SizedBox(height: size16),
-                          //         tabContent(),
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
-                          tabBar(),
-                          const SizedBox(height: size16),
-                          tabContent(),
-                          tripSelectedController.trip.type == "hotel"
-                              ? accommodationRules()
-                              : const SizedBox(),
-                          tripSelectedController.trip.type == "hotel"
-                              ? roomSection()
-                              : const SizedBox(),
-                        ],
+                            const SizedBox(height: size8),
+                            Text(
+                              tripSelectedController.trip.name,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: size24,
+                              ),
+                            ),
+                            const SizedBox(height: size8),
+                            rating(),
+                            const SizedBox(height: size12),
+                            // Card(
+                            //   elevation: size4,
+                            //   shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(size8),
+                            //   ),
+                            //   color: WizhColor.springWood,
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.symmetric(
+                            //       horizontal: size8,
+                            //       vertical: size8,
+                            //     ),
+                            //     child: Column(
+                            //       children: [
+                            //         tabBar(),
+                            //         const SizedBox(height: size16),
+                            //         tabContent(),
+                            //       ],
+                            //     ),
+                            //   ),
+                            // ),
+                            tabBar(),
+                            const SizedBox(height: size16),
+                            tabContent(),
+                            tripSelectedController.trip.type == "hotel"
+                                ? accommodationRules()
+                                : const SizedBox(),
+                            tripSelectedController.trip.type == "hotel"
+                                ? roomSection()
+                                : const SizedBox(),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

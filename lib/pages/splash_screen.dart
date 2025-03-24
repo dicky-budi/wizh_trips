@@ -23,10 +23,9 @@ class SplashScreenState extends State<SplashScreen> {
   void checkFirstTime() async {
     final firstTime = await SecureStorage().read('first_time');
     if (firstTime == null) {
-      Get.rootDelegate.toNamed('/onboarding');
+      Get.rootDelegate.offNamed("/onboarding");
     } else {
-      Get.rootDelegate.toNamed('/home');
-      await SecureStorage().delete("first_time");
+      Get.rootDelegate.offNamed("/home");
     }
   }
 

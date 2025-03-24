@@ -20,35 +20,44 @@ class TripApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp.router(
-      title: 'Wizh Trips',
-      theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
-      defaultTransition: Transition.cupertino,
-      initialBinding: BindingsBuilder(() {
-        Get.lazyPut<TripPopularController>(
-          () => TripPopularController(),
-          fenix: true,
-        );
-        Get.lazyPut<TripCategorizedController>(
-          () => TripCategorizedController(),
-          fenix: true,
-        );
-        Get.lazyPut<TripCategoryController>(
-          () => TripCategoryController(),
-          fenix: true,
-        );
-        Get.lazyPut<TripSelectedController>(
-          () => TripSelectedController(),
-          fenix: true,
-        );
-      }),
-      transitionDuration: const Duration(milliseconds: 500),
-      getPages: [
-        GetPage(name: '/', page: () => SplashScreen()),
-        GetPage(name: '/home', page: () => TripListPage()),
-        GetPage(name: '/onboarding', page: () => OnboardingScreen()),
-        GetPage(name: '/detail', page: () => TripDetailPage()),
-      ],
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          return;
+        }
+        Get.rootDelegate.offNamed("/home");
+      },
+      child: GetMaterialApp.router(
+        title: 'Wizh Trips',
+        theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
+        defaultTransition: Transition.cupertino,
+        initialBinding: BindingsBuilder(() {
+          Get.lazyPut<TripPopularController>(
+            () => TripPopularController(),
+            fenix: true,
+          );
+          Get.lazyPut<TripCategorizedController>(
+            () => TripCategorizedController(),
+            fenix: true,
+          );
+          Get.lazyPut<TripCategoryController>(
+            () => TripCategoryController(),
+            fenix: true,
+          );
+          Get.lazyPut<TripSelectedController>(
+            () => TripSelectedController(),
+            fenix: true,
+          );
+        }),
+        transitionDuration: const Duration(milliseconds: 500),
+        getPages: [
+          GetPage(name: '/', page: () => SplashScreen()),
+          GetPage(name: '/home', page: () => TripListPage()),
+          GetPage(name: '/onboarding', page: () => OnboardingScreen()),
+          GetPage(name: '/detail', page: () => TripDetailPage()),
+        ],
+      ),
     );
   }
 }
