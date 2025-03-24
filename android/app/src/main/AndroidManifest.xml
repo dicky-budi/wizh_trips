@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
     <application
-        android:label="wizh_trips"
+        android:label="Trips"
         android:name="${applicationName}"
+        android:enableOnBackInvokedCallback="false"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,12 +38,19 @@ class TripDetailPageState extends State<TripDetailPage>
       vsync: this,
       initialIndex: tripSelectedController.tabIndex.value,
     );
+    BackButtonInterceptor.add(interceptBack);
   }
 
   @override
   void dispose() {
-    tabController.dispose();
     super.dispose();
+    BackButtonInterceptor.remove(interceptBack);
+    tabController.dispose();
+  }
+
+  bool interceptBack(bool stopDefaultButtonEvent, RouteInfo info) {
+    Get.back();
+    return true;
   }
 
   Widget backBtn() {
@@ -485,112 +495,103 @@ class TripDetailPageState extends State<TripDetailPage>
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, result) {
-        if (didPop) {
-          return;
-        }
-        Get.rootDelegate.offNamed("/home");
-      },
-      child: Scaffold(
-        body: Stack(
-          children: [
-            CachedNetworkImage(
-              imageUrl: tripSelectedController.trip.image.first,
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.4,
-            ),
-            Positioned(top: size12, left: size16, child: backBtn()),
-            DraggableScrollableSheet(
-              initialChildSize: .7,
-              minChildSize: .7,
-              maxChildSize: 1,
-              snap: true,
-              snapSizes: [0.75, 1],
-              builder:
-                  (context, controller) => ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(size20),
-                      topRight: Radius.circular(size20),
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(color: WizhColor.springWood),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: size16,
-                          vertical: size20,
-                        ),
-                        child: ListView(
-                          shrinkWrap: true,
-                          controller: controller,
-                          padding: EdgeInsets.zero,
-                          children: [
-                            Row(
-                              children: [
-                                for (final tag
-                                    in tripSelectedController.trip.tags ?? [])
-                                  Row(
-                                    children: [
-                                      WizhChip(
-                                        selected: true,
-                                        onSelected: (value) {},
-                                        text: tag,
-                                      ),
-                                      const SizedBox(width: size8),
-                                    ],
-                                  ),
-                              ],
+    return Scaffold(
+      body: Stack(
+        children: [
+          CachedNetworkImage(
+            imageUrl: tripSelectedController.trip.image.first,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.4,
+          ),
+          Positioned(top: size12, left: size16, child: backBtn()),
+          DraggableScrollableSheet(
+            initialChildSize: .7,
+            minChildSize: .7,
+            maxChildSize: 1,
+            snap: true,
+            snapSizes: [0.75, 1],
+            builder:
+                (context, controller) => ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(size20),
+                    topRight: Radius.circular(size20),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(color: WizhColor.springWood),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: size16,
+                        vertical: size20,
+                      ),
+                      child: ListView(
+                        shrinkWrap: true,
+                        controller: controller,
+                        padding: EdgeInsets.zero,
+                        children: [
+                          Row(
+                            children: [
+                              for (final tag
+                                  in tripSelectedController.trip.tags ?? [])
+                                Row(
+                                  children: [
+                                    WizhChip(
+                                      selected: true,
+                                      onSelected: (value) {},
+                                      text: tag,
+                                    ),
+                                    const SizedBox(width: size8),
+                                  ],
+                                ),
+                            ],
+                          ),
+                          const SizedBox(height: size8),
+                          Text(
+                            tripSelectedController.trip.name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: size24,
                             ),
-                            const SizedBox(height: size8),
-                            Text(
-                              tripSelectedController.trip.name,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: size24,
-                              ),
-                            ),
-                            const SizedBox(height: size8),
-                            rating(),
-                            const SizedBox(height: size12),
-                            // Card(
-                            //   elevation: size4,
-                            //   shape: RoundedRectangleBorder(
-                            //     borderRadius: BorderRadius.circular(size8),
-                            //   ),
-                            //   color: WizhColor.springWood,
-                            //   child: Padding(
-                            //     padding: const EdgeInsets.symmetric(
-                            //       horizontal: size8,
-                            //       vertical: size8,
-                            //     ),
-                            //     child: Column(
-                            //       children: [
-                            //         tabBar(),
-                            //         const SizedBox(height: size16),
-                            //         tabContent(),
-                            //       ],
-                            //     ),
-                            //   ),
-                            // ),
-                            tabBar(),
-                            const SizedBox(height: size16),
-                            tabContent(),
-                            tripSelectedController.trip.type == "hotel"
-                                ? accommodationRules()
-                                : const SizedBox(),
-                            tripSelectedController.trip.type == "hotel"
-                                ? roomSection()
-                                : const SizedBox(),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(height: size8),
+                          rating(),
+                          const SizedBox(height: size12),
+                          // Card(
+                          //   elevation: size4,
+                          //   shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(size8),
+                          //   ),
+                          //   color: WizhColor.springWood,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.symmetric(
+                          //       horizontal: size8,
+                          //       vertical: size8,
+                          //     ),
+                          //     child: Column(
+                          //       children: [
+                          //         tabBar(),
+                          //         const SizedBox(height: size16),
+                          //         tabContent(),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
+                          tabBar(),
+                          const SizedBox(height: size16),
+                          tabContent(),
+                          tripSelectedController.trip.type == "hotel"
+                              ? accommodationRules()
+                              : const SizedBox(),
+                          tripSelectedController.trip.type == "hotel"
+                              ? roomSection()
+                              : const SizedBox(),
+                        ],
                       ),
                     ),
                   ),
-            ),
-          ],
-        ),
+                ),
+          ),
+        ],
       ),
     );
   }
