@@ -20,7 +20,7 @@ class OnboardingScreen extends StatelessWidget {
       body: Stack(
         children: [
           SizedBox.expand(
-            child: Image.asset("assets/bg/splash-hotel.jpg", fit: BoxFit.cover),
+            child: Image.asset("assets/bg/onboarding.jpg", fit: BoxFit.cover),
           ),
           Padding(
             padding: EdgeInsets.symmetric(
@@ -56,7 +56,7 @@ class OnboardingScreen extends StatelessWidget {
                   text: "Let's Go",
                   onSwipe: () async {
                     await SecureStorage().save('first_time', 'true');
-                    Get.rootDelegate.toNamed('/');
+                    Get.rootDelegate.toNamed('/home');
                   },
                 ),
               ],

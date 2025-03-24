@@ -435,18 +435,22 @@ class TripDetailPageState extends State<TripDetailPage>
                             ],
                           ),
                         ),
-                        WizhSwipeButton(
-                          text: "Book Now",
-                          onSwipe: () async {
-                            Get.snackbar(
-                              "Coming Soon",
-                              "Please Stay Tuned!",
-                              backgroundColor: WizhColor.beaver,
-                              colorText: WizhColor.isabelline,
-                            );
-                          },
+                        const SizedBox(height: size4),
+                        Expanded(
+                          flex: 0,
+                          child: WizhSwipeButton(
+                            text: "Book Now",
+                            onSwipe: () async {
+                              Get.snackbar(
+                                "Coming Soon",
+                                "Please Stay Tuned!",
+                                backgroundColor: WizhColor.beaver,
+                                colorText: WizhColor.isabelline,
+                              );
+                            },
+                          ),
                         ),
-                        const SizedBox(height: size8),
+                        const SizedBox(height: size4),
                       ],
                     ),
                   ),
